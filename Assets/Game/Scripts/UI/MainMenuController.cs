@@ -1,39 +1,48 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Core.Utils.UI;
 
-public class MainMenuController : MonoBehaviour
+namespace Game.UI
 {
-    [SerializeField] Button continueButton;
-    [SerializeField] Button newGameButton;
-    [SerializeField] Button settingsButton;
-    [SerializeField] Button exitButton;
-
-    private void Awake()
+    [RequireComponent(typeof(GamepadMenuController))]
+    public class MainMenuController : MonoBehaviour
     {
-        continueButton.onClick.AddListener(OnContinueButtonClicked);
-        newGameButton.onClick.AddListener(OnNewGameButtonClicked);
-        settingsButton.onClick.AddListener(OnSettingsButtonClicked);
-        exitButton.onClick.AddListener(OnExitButtonClicked);
-    }
+        [SerializeField] Button continueButton;
+        [SerializeField] Button newGameButton;
+        [SerializeField] Button settingsButton;
+        [SerializeField] Button exitButton;
 
-    private void OnContinueButtonClicked()
-    {
-        SceneManager.LoadScene(2);
-    }
+        private GamepadMenuController gamepadMenuController;
 
-    private void OnNewGameButtonClicked()
-    {
-        SceneManager.LoadScene(2);
-    }
+        private void Awake()
+        {
+            gamepadMenuController = GetComponent<GamepadMenuController>();
+            gamepadMenuController.ForceSelectionTo(continueButton.gameObject);
+            continueButton.onClick.AddListener(OnContinueButtonClicked);
+            newGameButton.onClick.AddListener(OnNewGameButtonClicked);
+            settingsButton.onClick.AddListener(OnSettingsButtonClicked);
+            exitButton.onClick.AddListener(OnExitButtonClicked);
+        }
 
-    private void OnSettingsButtonClicked()
-    {
+        private void OnContinueButtonClicked()
+        {
+            SceneManager.LoadScene(2);
+        }
 
-    }
+        private void OnNewGameButtonClicked()
+        {
+            SceneManager.LoadScene(2);
+        }
 
-    private void OnExitButtonClicked()
-    {
-        Application.Quit();
+        private void OnSettingsButtonClicked()
+        {
+
+        }
+
+        private void OnExitButtonClicked()
+        {
+            Application.Quit();
+        }
     }
 }

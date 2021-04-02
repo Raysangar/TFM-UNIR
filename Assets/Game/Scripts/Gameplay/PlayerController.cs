@@ -1,35 +1,61 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(PlayerInput))]
-public class PlayerController : MonoBehaviour
+namespace Game.Gameplay.Player
 {
-    [SerializeField] float speed;
-
-    private Transform cachedTransform;
-    private Vector3 currentMovement;
-
-    private void Awake()
+    [RequireComponent(typeof(PlayerInput))]
+    public class PlayerController : MonoBehaviour
     {
-        cachedTransform = transform;
-        currentMovement = Vector3.zero;
-    }
+        [SerializeField] float speed;
 
-    public void Move(InputAction.CallbackContext context)
-    {
-        Vector2 input = context.ReadValue<Vector2>();
-        currentMovement.x = input.x;
-        currentMovement.z = input.y;
-        currentMovement *= speed;
-    }
+        private Transform cachedTransform;
+        private Vector3 currentMovement;
+        private Vector3 currentTarget;
+        private Camera mainCamera;
 
-    private void Update()
-    {
-        UpdateMovement();
-    }
+        private void Awake()
+        {
+            cachedTransform = transform;
+            currentMovement = Vector3.zero;
+            mainCamera = Camera.main;
+        }
 
-    private void UpdateMovement()
-    {
-        cachedTransform.Translate(currentMovement * Time.deltaTime);
+        public void Move(InputAction.CallbackContext context)
+        {
+            Vector2 input = context.ReadValue<Vector2>();
+            currentMovement.x = input.x;
+            currentMovement.z = input.y;
+            currentMovement *= speed;
+        }
+
+        public void Look(InputAction.CallbackContext context)
+        {
+            cachedTransform.localRotation = context.ReadValue<Quaternion>();
+        }
+
+        public void LookAt(InputAction.CallbackContext context)
+        {
+            Vector3 input = context.ReadValue<Vector2>();
+            input.z = Vector3.Distance(mainCamera.transform.position, cachedTransform.position);
+            currentTarget = mainCamera.ScreenToWorldPoint(input);
+        }
+
+        private void Update()
+        {
+            UpdateMovement();
+            UpdateAim();
+        }
+
+        private void UpdateMovement()
+        {
+            cachedTransform.Translate(currentMovement * Time.deltaTime, Space.World);
+        }
+
+        private void UpdateAim()
+        {
+            Vector3 lookPosition = currentTarget - cachedTransform.position;
+            lookPosition.y = 0;
+            cachedTransform.localRotation = Quaternion.LookRotation(lookPosition);
+        }
     }
 }

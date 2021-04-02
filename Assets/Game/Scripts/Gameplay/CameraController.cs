@@ -1,20 +1,23 @@
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+namespace Game.Gameplay
 {
-    [SerializeField] Transform player;
-    [SerializeField] Vector3 distanceFromPlayer;
-
-    private Transform cachedTransform;
-
-    private void Awake()
+    public class CameraController : MonoBehaviour
     {
-        cachedTransform = transform;
-    }
+        [SerializeField] Transform player;
+        [SerializeField] Vector3 distanceFromPlayer;
 
-    private void Update()
-    {
-        cachedTransform.position = player.position + distanceFromPlayer;
-    }
+        private Transform cachedTransform;
 
+        private void Awake()
+        {
+            cachedTransform = transform;
+        }
+
+        private void Update()
+        {
+            cachedTransform.position = player.position + distanceFromPlayer;
+        }
+
+    }
 }
