@@ -3,10 +3,11 @@ using UnityEngine.InputSystem;
 
 namespace Game.Gameplay.Player
 {
-    [RequireComponent(typeof(PlayerInput))]
+    [RequireComponent(typeof(PlayerInput), typeof(WeaponsSystem.Weapon))]
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] float speed;
+        [SerializeField] WeaponsSystem.Weapon weapon;
 
         private Transform cachedTransform;
         private Vector3 currentMovement;
@@ -38,6 +39,14 @@ namespace Game.Gameplay.Player
             Vector3 input = context.ReadValue<Vector2>();
             input.z = Vector3.Distance(mainCamera.transform.position, cachedTransform.position);
             currentTarget = mainCamera.ScreenToWorldPoint(input);
+        }
+
+        public void Shoot(InputAction.CallbackContext context)
+        {
+            if (context.started)
+                weapon.StartShooting();
+            else if (context.canceled)
+                weapon.StopShooting();
         }
 
         private void Update()
