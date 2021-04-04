@@ -1,5 +1,5 @@
 using UnityEngine;
-using Core.Utils;
+using Core.Utils.Pool;
 
 namespace Game.Gameplay.WeaponsSystem
 {
@@ -45,7 +45,9 @@ namespace Game.Gameplay.WeaponsSystem
 
         private void Update()
         {
-            timeSinceLastProjectile += Time.deltaTime;
+            if (timeSinceLastProjectile < settings.ProjectilePeriod)
+                timeSinceLastProjectile += Time.deltaTime;
+
             if (isShooting && timeSinceLastProjectile > settings.ProjectilePeriod)
             {
                 timeSinceLastProjectile -= settings.ProjectilePeriod;

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-namespace Core.Utils
+namespace Core.Utils.Pool
 {
     public class PoolManager : MonoBehaviour
     {
@@ -22,17 +22,15 @@ namespace Core.Utils
 
         private static PoolManager instance;
 
-        private readonly Dictionary<System.Type, Stack<MonoBehaviour>> pools = new Dictionary<System.Type, Stack<MonoBehaviour>>();
+        private readonly Dictionary<int, Stack<PoolObject>> pools = new Dictionary<int, Stack<PoolObject>>();
 
-        public T GetInstanceFor<T>(T prefab) where T : MonoBehaviour
+        public T GetInstanceFor<T>(T prefab) where T : PoolObject
         {
-            var prefabType = typeof(T);
-            Stack<MonoBehaviour> pool;
-
-            if (!pools.TryGetValue(prefabType, out pool))
+            Stack<PoolObject> pool;
+            if (!pools.TryGetValue(prefab.ID, out pool))
             {
-                pool = new Stack<MonoBehaviour>();
-                pools.Add(prefabType, pool);
+                pool = new Stack<PoolObject>();
+                pools.Add(prefab.ID, pool);
             }
 
             if (pool.Count > 0)
@@ -41,9 +39,9 @@ namespace Core.Utils
                 return Instantiate(prefab);
         }
 
-        public void Release<T>(T instancedObject) where T : MonoBehaviour
+        public void Release(PoolObject instancedObject)
         {
-            pools[typeof(T)].Push(instancedObject);
+            pools[instancedObject.ID].Push(instancedObject);
         }
 
         private void OnDestroy()

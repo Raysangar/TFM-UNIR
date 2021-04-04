@@ -1,9 +1,9 @@
 using UnityEngine;
-using Core.Utils;
+using Core.Utils.Pool;
 
 namespace Game.Gameplay.WeaponsSystem
 {
-    public class Projectile : MonoBehaviour
+    public class Projectile : PoolObject
     {
         private const float DURATION_IN_SECONDS = 5;
 
