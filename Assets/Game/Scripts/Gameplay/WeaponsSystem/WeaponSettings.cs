@@ -2,16 +2,18 @@ using UnityEngine;
 
 namespace Game.Gameplay.WeaponsSystem
 {
-    [CreateAssetMenu(fileName = "WeaponSettings", menuName = "Game/Gameplay/Weapon")]
+    [CreateAssetMenu(fileName = "WeaponSettings", menuName = "Game/Gameplay/Weapon Settings")]
     public class WeaponSettings : ScriptableObject
     {
+        [System.Serializable]
         public class AmmoSettings
         {
-            public GameObject ProjectilePrefab;
+            public Projectile ProjectilePrefab;
         }
 
         public int ClipSize;
-        public AmmoSettings[] AmmoSettins;
-        public float ProjectileFrequency;
+        public float ProjectileSpeed;
+        public float ProjectilePeriod;
+        public AmmoSettings[] Ammo;
     }
 }

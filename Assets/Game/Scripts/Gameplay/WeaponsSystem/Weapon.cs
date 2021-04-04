@@ -1,18 +1,32 @@
 using UnityEngine;
+using Core.Utils;
 
 namespace Game.Gameplay.WeaponsSystem
 {
     public class Weapon : MonoBehaviour
     {
-        [SerializeField] Transform projectileInitialPosition;
-        [SerializeField] WeaponSettings settings;
 
-        private WeaponSettings.AmmoSettings CurrentAmmo => settings.AmmoSettins[equippedAmmoIndex];
+        private WeaponSettings.AmmoSettings CurrentAmmo => settings.Ammo[equippedAmmoIndex];
 
+        private Transform projectilePosReference;
+        private WeaponSettings settings;
         private int[] clipsPerAmmo;
         private float timeSinceLastProjectile;
         private bool isShooting;
         private int equippedAmmoIndex;
+
+        public void Init(Transform projectilePosReference, WeaponSettings settings)
+        {
+            this.projectilePosReference = projectilePosReference;
+            this.settings = settings;
+
+            clipsPerAmmo = new int[settings.Ammo.Length];
+            for (int i = 0; i < clipsPerAmmo.Length; ++i)
+                clipsPerAmmo[i] = settings.ClipSize;
+            
+            timeSinceLastProjectile = settings.ProjectilePeriod;
+            SetEquippedAmmo(0);
+        }
 
         public void StartShooting()
         {
@@ -29,18 +43,12 @@ namespace Game.Gameplay.WeaponsSystem
             equippedAmmoIndex = ammoIndex;
         }
 
-        private void Awake()
-        {
-            timeSinceLastProjectile = settings.ProjectileFrequency;
-            equippedAmmoIndex = 0;
-        }
-
         private void Update()
         {
             timeSinceLastProjectile += Time.deltaTime;
-            if (isShooting && timeSinceLastProjectile > settings.ProjectileFrequency)
+            if (isShooting && timeSinceLastProjectile > settings.ProjectilePeriod)
             {
-                timeSinceLastProjectile -= settings.ProjectileFrequency;
+                timeSinceLastProjectile -= settings.ProjectilePeriod;
                 ShootProjectile();
             }
         }
@@ -50,7 +58,8 @@ namespace Game.Gameplay.WeaponsSystem
             if (clipsPerAmmo[equippedAmmoIndex] > 0)
             {
                 --clipsPerAmmo[equippedAmmoIndex];
-
+                var projectile = PoolManager.Instance.GetInstanceFor(CurrentAmmo.ProjectilePrefab);
+                projectile.Init(projectilePosReference.position, projectilePosReference.rotation, settings.ProjectileSpeed);
             }
         }
     }

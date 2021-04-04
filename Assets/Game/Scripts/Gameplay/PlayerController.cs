@@ -3,12 +3,13 @@ using UnityEngine.InputSystem;
 
 namespace Game.Gameplay.Player
 {
-    [RequireComponent(typeof(PlayerInput), typeof(WeaponsSystem.Weapon))]
+    [RequireComponent(typeof(PlayerInput))]
     public class PlayerController : MonoBehaviour
     {
-        [SerializeField] float speed;
-        [SerializeField] WeaponsSystem.Weapon weapon;
+        [SerializeField] PlayerSettings settings;
+        [SerializeField] Transform projectilePosReference;
 
+        private WeaponsSystem.Weapon weapon;
         private Transform cachedTransform;
         private Vector3 currentMovement;
         private Vector3 currentTarget;
@@ -16,6 +17,9 @@ namespace Game.Gameplay.Player
 
         private void Awake()
         {
+            weapon = gameObject.AddComponent<WeaponsSystem.Weapon>();
+            weapon.Init(projectilePosReference, settings.WeaponSettings);
+
             cachedTransform = transform;
             currentMovement = Vector3.zero;
             mainCamera = Camera.main;
@@ -26,7 +30,7 @@ namespace Game.Gameplay.Player
             Vector2 input = context.ReadValue<Vector2>();
             currentMovement.x = input.x;
             currentMovement.z = input.y;
-            currentMovement *= speed;
+            currentMovement *= settings.Speed;
         }
 
         public void Look(InputAction.CallbackContext context)
