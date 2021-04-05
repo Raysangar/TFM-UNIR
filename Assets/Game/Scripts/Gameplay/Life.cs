@@ -1,18 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Life : MonoBehaviour
+namespace Game.Gameplay
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Life : MonoBehaviour
     {
-        
-    }
+        public System.Action OnDeath;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public int Max { get; private set; }
+        public int Current { get; private set; }
+
+        public void Init(int maxLife)
+        {
+            Max = Current = maxLife;
+        }
+
+        public void AddDamage(int damage)
+        {
+            Current -= damage;
+            if (Current <= 0)
+            {
+                Current = 0;
+                OnDeath();
+            }
+        }
+
+        public void AddLife(int amount)
+        {
+            Current = Mathf.Min(Current + amount, Max);
+        }
     }
 }

@@ -15,5 +15,6 @@ MonoBehaviour:
   ClipSize: 10
   ProjectileSpeed: 10
   ProjectilePeriod: 1
+  Damange: 1
   Ammo:
   - ProjectilePrefab: {fileID: 6945576910884391660, guid: a93e0d0114027a9458f3bb13c20f4775, type: 3}

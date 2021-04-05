@@ -5,7 +5,6 @@ namespace Game.Gameplay.WeaponsSystem
 {
     public class Weapon : MonoBehaviour
     {
-
         private WeaponSettings.AmmoSettings CurrentAmmo => settings.Ammo[equippedAmmoIndex];
 
         private Transform projectilePosReference;
@@ -43,12 +42,17 @@ namespace Game.Gameplay.WeaponsSystem
             equippedAmmoIndex = ammoIndex;
         }
 
+        public void AddAmmo(int ammoIndex, int amount)
+        {
+            clipsPerAmmo[ammoIndex] = Mathf.Min(clipsPerAmmo[ammoIndex] + amount, settings.ClipSize);
+        }
+
         private void Update()
         {
             if (timeSinceLastProjectile < settings.ProjectilePeriod)
                 timeSinceLastProjectile += Time.deltaTime;
 
-            if (isShooting && timeSinceLastProjectile > settings.ProjectilePeriod)
+            if (isShooting && timeSinceLastProjectile >= settings.ProjectilePeriod)
             {
                 timeSinceLastProjectile -= settings.ProjectilePeriod;
                 ShootProjectile();
@@ -61,7 +65,8 @@ namespace Game.Gameplay.WeaponsSystem
             {
                 --clipsPerAmmo[equippedAmmoIndex];
                 var projectile = PoolManager.Instance.GetInstanceFor(CurrentAmmo.ProjectilePrefab);
-                projectile.Init(projectilePosReference.position, projectilePosReference.rotation, settings.ProjectileSpeed);
+                projectile.Init(projectilePosReference.position, projectilePosReference.rotation, 
+                    settings.ProjectileSpeed, settings.Damange);
             }
         }
     }

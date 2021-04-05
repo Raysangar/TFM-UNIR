@@ -10,9 +10,11 @@ namespace Game.Gameplay.WeaponsSystem
         private Transform cachedTransform;
         private Vector3 movement = Vector3.zero;
         private float durationLeft;
+        private int damage;
         
-        public void Init(Vector3 position, Quaternion direction, float speed)
+        public void Init(Vector3 position, Quaternion direction, float speed, int damage)
         {
+            this.damage = damage;
             if (cachedTransform == null)
                 cachedTransform = transform;
             cachedTransform.position = position;
@@ -38,8 +40,9 @@ namespace Game.Gameplay.WeaponsSystem
 
         private void OnCollisionEnter(Collision collision)
         {
-            //TODO: Collision/System system
             PoolManager.Instance.Release(this);
+            var collisionLife = collision.gameObject.GetComponent<Life>();
+            collisionLife?.AddDamage(damage);
         }
     }
 }

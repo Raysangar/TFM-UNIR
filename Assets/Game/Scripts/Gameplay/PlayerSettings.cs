@@ -6,6 +6,7 @@ namespace Game.Gameplay
     public class PlayerSettings : ScriptableObject
     {
         public float Speed;
+        public int MaxLife;
         public WeaponsSystem.WeaponSettings WeaponSettings;
     }
 }

@@ -33,14 +33,19 @@ namespace Core.Utils.Pool
                 pools.Add(prefab.ID, pool);
             }
 
+            T instancedObject;
             if (pool.Count > 0)
-                return pool.Pop() as T;
+                instancedObject = pool.Pop() as T;
             else
-                return Instantiate(prefab);
+                instancedObject = Instantiate(prefab);
+            instancedObject.gameObject.SetActive(true);
+
+            return instancedObject as T;
         }
 
         public void Release(PoolObject instancedObject)
         {
+            instancedObject.gameObject.SetActive(false);
             pools[instancedObject.ID].Push(instancedObject);
         }
 

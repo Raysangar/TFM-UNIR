@@ -14,6 +14,7 @@ namespace Game.Gameplay.WeaponsSystem
         public int ClipSize;
         public float ProjectileSpeed;
         public float ProjectilePeriod;
+        public int Damange;
         public AmmoSettings[] Ammo;
     }
 }

@@ -6,10 +6,12 @@ namespace Game.Gameplay.Player
     [RequireComponent(typeof(PlayerInput))]
     public class PlayerController : MonoBehaviour
     {
+        public WeaponsSystem.Weapon Weapon { get; private set; }
+        public Life Life { get; private set; }
+
         [SerializeField] PlayerSettings settings;
         [SerializeField] Transform projectilePosReference;
 
-        private WeaponsSystem.Weapon weapon;
         private Transform cachedTransform;
         private Vector3 currentMovement;
         private Vector3 currentTarget;
@@ -17,8 +19,11 @@ namespace Game.Gameplay.Player
 
         private void Awake()
         {
-            weapon = gameObject.AddComponent<WeaponsSystem.Weapon>();
-            weapon.Init(projectilePosReference, settings.WeaponSettings);
+            Weapon = gameObject.AddComponent<WeaponsSystem.Weapon>();
+            Weapon.Init(projectilePosReference, settings.WeaponSettings);
+
+            Life = gameObject.AddComponent<Life>();
+            Life.Init(settings.MaxLife);
 
             cachedTransform = transform;
             currentMovement = Vector3.zero;
@@ -48,9 +53,9 @@ namespace Game.Gameplay.Player
         public void Shoot(InputAction.CallbackContext context)
         {
             if (context.started)
-                weapon.StartShooting();
+                Weapon.StartShooting();
             else if (context.canceled)
-                weapon.StopShooting();
+                Weapon.StopShooting();
         }
 
         private void Update()
