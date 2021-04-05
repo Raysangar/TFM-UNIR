@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Game.Gameplay
+namespace Game.Gameplay.Units
 {
     public class Life : MonoBehaviour
     {

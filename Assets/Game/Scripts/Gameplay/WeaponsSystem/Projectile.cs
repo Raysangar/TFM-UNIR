@@ -41,8 +41,9 @@ namespace Game.Gameplay.WeaponsSystem
         private void OnCollisionEnter(Collision collision)
         {
             PoolManager.Instance.Release(this);
-            var collisionLife = collision.gameObject.GetComponent<Life>();
-            collisionLife?.AddDamage(damage);
+            var collisionLife = collision.gameObject.GetComponent<Units.Life>();
+            if (collisionLife != null)
+                collisionLife.AddDamage(damage);
         }
     }
 }

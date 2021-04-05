@@ -1,16 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game.Gameplay
+namespace Game.Gameplay.PickUps
 {
     public abstract class BasePickUp : MonoBehaviour
     {
-        protected abstract void Activate(Player.PlayerController player);
+        protected abstract void Activate(Units.PlayerController player);
 
         private void OnTriggerEnter(Collider other)
         {
-            Activate(other.GetComponent<Player.PlayerController>());
+            Activate(other.GetComponent<Units.PlayerController>());
         }
     }
 }

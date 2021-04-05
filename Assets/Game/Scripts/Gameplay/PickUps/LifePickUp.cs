@@ -1,12 +1,12 @@
 using UnityEngine;
 
-namespace Game.Gameplay
+namespace Game.Gameplay.PickUps
 {
     public class LifePickUp : BasePickUp
     {
         [SerializeField] int amount;
 
-        protected override void Activate(Player.PlayerController player)
+        protected override void Activate(Units.PlayerController player)
         {
             player.Life.AddLife(amount);
         }
