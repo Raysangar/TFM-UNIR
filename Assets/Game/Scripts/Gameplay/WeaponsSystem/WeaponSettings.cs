@@ -11,6 +11,7 @@ namespace Game.Gameplay.WeaponsSystem
             public Projectile ProjectilePrefab;
         }
 
+        public bool InfiniteAmmo;
         public int ClipSize;
         public float ProjectileSpeed;
         public float ProjectilePeriod;

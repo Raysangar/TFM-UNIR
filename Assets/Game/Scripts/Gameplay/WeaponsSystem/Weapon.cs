@@ -20,8 +20,9 @@ namespace Game.Gameplay.WeaponsSystem
             this.settings = settings;
 
             clipsPerAmmo = new int[settings.Ammo.Length];
+            int clipSize = settings.InfiniteAmmo ? int.MaxValue : settings.ClipSize;
             for (int i = 0; i < clipsPerAmmo.Length; ++i)
-                clipsPerAmmo[i] = settings.ClipSize;
+                clipsPerAmmo[i] = clipSize;
             
             timeSinceLastProjectile = settings.ProjectilePeriod;
             SetEquippedAmmo(0);

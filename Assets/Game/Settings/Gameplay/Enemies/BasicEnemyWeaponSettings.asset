@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 100ccb7e10f01ed4f81b9b4e7263fecd, type: 3}
   m_Name: BasicEnemyWeaponSettings
   m_EditorClassIdentifier: 
+  InfiniteAmmo: 1
   ClipSize: 10
   ProjectileSpeed: 10
   ProjectilePeriod: 1

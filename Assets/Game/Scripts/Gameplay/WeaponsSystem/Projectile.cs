@@ -38,12 +38,13 @@ namespace Game.Gameplay.WeaponsSystem
             PoolManager.Instance.Release(this);
         }
 
-        private void OnCollisionEnter(Collision collision)
+        private void OnTriggerEnter(Collider other)
         {
             PoolManager.Instance.Release(this);
-            var collisionLife = collision.gameObject.GetComponent<Units.Life>();
+            var collisionLife = other.gameObject.GetComponent<Units.Life>();
             if (collisionLife != null)
                 collisionLife.AddDamage(damage);
+            
         }
     }
 }

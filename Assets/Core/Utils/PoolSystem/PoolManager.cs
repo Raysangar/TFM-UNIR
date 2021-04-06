@@ -24,7 +24,19 @@ namespace Core.Utils.Pool
 
         private readonly Dictionary<int, Stack<PoolObject>> pools = new Dictionary<int, Stack<PoolObject>>();
 
+        public void Release(PoolObject instancedObject)
+        {
+            instancedObject.gameObject.SetActive(false);
+            pools[instancedObject.ID].Push(instancedObject);
+        }
+
         public T GetInstanceFor<T>(T prefab) where T : PoolObject
+        {
+            var pool = GetPoolFor(prefab);
+            return GetOrInstantiate(prefab, pool);
+        }
+
+        private Stack<PoolObject> GetPoolFor(PoolObject prefab)
         {
             Stack<PoolObject> pool;
             if (!pools.TryGetValue(prefab.ID, out pool))
@@ -32,21 +44,23 @@ namespace Core.Utils.Pool
                 pool = new Stack<PoolObject>();
                 pools.Add(prefab.ID, pool);
             }
-
-            T instancedObject;
-            if (pool.Count > 0)
-                instancedObject = pool.Pop() as T;
-            else
-                instancedObject = Instantiate(prefab);
-            instancedObject.gameObject.SetActive(true);
-
-            return instancedObject as T;
+            return pool;
         }
 
-        public void Release(PoolObject instancedObject)
+        private T GetOrInstantiate<T>(T prefab, Stack<PoolObject> pool) where T : PoolObject
         {
-            instancedObject.gameObject.SetActive(false);
-            pools[instancedObject.ID].Push(instancedObject);
+            T instancedObject;
+            if (pool.Count > 0)
+            {
+                instancedObject = pool.Pop() as T;
+                instancedObject.gameObject.SetActive(true);
+            }
+            else
+            {
+                instancedObject = Instantiate(prefab);
+                DontDestroyOnLoad(instancedObject);
+            }
+            return instancedObject;
         }
 
         private void OnDestroy()

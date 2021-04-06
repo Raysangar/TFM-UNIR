@@ -2,14 +2,14 @@ using UnityEngine;
 
 namespace Game.Gameplay.Units
 {
-    public abstract class BaseUnit : MonoBehaviour
+    public abstract class BaseUnit<T> : MonoBehaviour where T : BaseUnitSettings
     {
         public WeaponsSystem.Weapon Weapon { get; private set; }
         public Life Life { get; private set; }
         public Movement Movement { get; private set; }
 
         [SerializeField] protected Transform projectilePosReference;
-        [SerializeField] protected BaseUnitSettings settings;
+        [SerializeField] protected T settings;
 
         protected virtual void Awake()
         {
