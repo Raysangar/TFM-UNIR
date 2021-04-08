@@ -5,6 +5,8 @@ namespace Game.Gameplay.WeaponsSystem
 {
     public class Weapon : MonoBehaviour
     {
+        public int AmmoTypesCount => clipsPerAmmo.Length;
+
         private WeaponSettings.AmmoSettings CurrentAmmo => settings.Ammo[equippedAmmoIndex];
 
         private Transform projectilePosReference;
@@ -13,6 +15,8 @@ namespace Game.Gameplay.WeaponsSystem
         private float timeSinceLastProjectile;
         private bool isShooting;
         private int equippedAmmoIndex;
+
+        public int GetAmmoLeftForType(int ammoIndex) => clipsPerAmmo[ammoIndex];
 
         public void Init(Transform projectilePosReference, WeaponSettings settings)
         {

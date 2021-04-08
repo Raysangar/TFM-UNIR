@@ -16,9 +16,15 @@ namespace Game.Gameplay
                 enemy.InitBehaviour(player);
         }
 
+        private void Update()
+        {
+            Debug.Log("Life: " + player.Life.Current + " Ammo: " + player.Weapon.GetAmmoLeftForType(0));
+        }
+
         private void OnPlayerDeath()
         {
             SceneManager.LoadScene(2);
+            Debug.Log("Game Over");
         }
     }
 }

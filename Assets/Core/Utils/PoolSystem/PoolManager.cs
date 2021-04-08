@@ -27,7 +27,8 @@ namespace Core.Utils.Pool
         public void Release(PoolObject instancedObject)
         {
             instancedObject.gameObject.SetActive(false);
-            pools[instancedObject.ID].Push(instancedObject);
+            var pool = GetPoolFor(instancedObject);
+            pool.Push(instancedObject);
         }
 
         public T GetInstanceFor<T>(T prefab) where T : PoolObject

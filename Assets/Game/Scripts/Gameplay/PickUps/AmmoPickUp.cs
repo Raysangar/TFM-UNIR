@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Game.Gameplay.PickUps
 {
-    public class AmmoPickUp : BasePickUp
+    public class AmmoPickup : BasePickup
     {
         [SerializeField] int ammoIndex;
         [SerializeField] int amount;
