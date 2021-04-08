@@ -10,10 +10,12 @@ namespace Game.Gameplay.Units
 
         private Camera mainCamera;
         private PlayerInput playerInput;
+        private Vector3? mousePosition;
 
         protected override void Awake()
         {
             base.Awake();
+            mousePosition = null;
             mainCamera = Camera.main;
             playerInput = GetComponent<PlayerInput>();
             Life.OnDeath += OnDeathCallback;
@@ -28,13 +30,14 @@ namespace Game.Gameplay.Units
         public void Look(InputAction.CallbackContext context)
         {
             Movement.SetRotation(context.ReadValue<Quaternion>());
+            mousePosition = null;
         }
 
         public void LookAt(InputAction.CallbackContext context)
         {
             Vector3 input = context.ReadValue<Vector2>();
             input.z = Vector3.Distance(mainCamera.transform.position, Movement.Position);
-            Movement.SetLookTarget(mainCamera.ScreenToWorldPoint(input));
+            mousePosition = input;
         }
 
         public void Shoot(InputAction.CallbackContext context)
@@ -43,6 +46,12 @@ namespace Game.Gameplay.Units
                 Weapon.StartShooting();
             else if (context.canceled)
                 Weapon.StopShooting();
+        }
+
+        private void Update()
+        {
+            if (mousePosition.HasValue)
+                Movement.SetLookTarget(mainCamera.ScreenToWorldPoint(mousePosition.Value));
         }
 
         private void OnDeathCallback()
