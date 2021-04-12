@@ -19,7 +19,7 @@ MonoBehaviour:
   m_SerializeEntries:
   - m_GUID: 98ac646b3875bb24f8eb9223db62515d
     m_Address: MainMenu Shared Data
-    m_ReadOnly: 0
+    m_ReadOnly: 1
     m_SerializedLabels: []
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
