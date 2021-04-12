@@ -1,11 +1,12 @@
 using UnityEngine;
 using Core.Utils.Pool;
+using Game.Gameplay.Units;
 
-namespace Game.Gameplay.PickUps
+namespace Game.Gameplay.Pickups
 {
     public abstract class BasePickup : PoolObject
     {
-        protected abstract void Activate(Units.PlayerController player);
+        protected abstract void Activate(PlayerController player);
 
         private void OnTriggerEnter(Collider other)
         {
