@@ -5,6 +5,7 @@ namespace Game.Gameplay.Units
     public class Life : MonoBehaviour
     {
         public System.Action OnDeath;
+        public System.Action OnChanged;
 
         public int Max { get; private set; }
         public int Current { get; private set; }
@@ -21,6 +22,10 @@ namespace Game.Gameplay.Units
             {
                 Current = 0;
                 OnDeath();
+            }
+            else
+            {
+                OnChanged?.Invoke();
             }
         }
 
