@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Game.Gameplay.WeaponsSystem;
 
 namespace Game.Gameplay.Units
 {
@@ -8,6 +7,7 @@ namespace Game.Gameplay.Units
     {
         public float Speed;
         public int MaxLife;
-        public WeaponsSystem.WeaponSettings WeaponSettings;
+        public WeaponSettings WeaponSettings;
+        public AmmoType AmmoWeakness;
     }
 }

@@ -8,14 +8,18 @@ namespace Game.Gameplay.WeaponsSystem
         [System.Serializable]
         public class AmmoSettings
         {
+            public AmmoType Type;
             public Projectile ProjectilePrefab;
+            public Color Color;
         }
 
         public bool InfiniteAmmo;
         public int ClipSize;
+        public bool InfiniteTankSize;
+        public int TankSize;
         public float ProjectileSpeed;
         public float ProjectilePeriod;
-        public int Damange;
+        public int Damage;
         public AmmoSettings[] Ammo;
     }
 }

@@ -11,9 +11,11 @@ namespace Game.Gameplay.WeaponsSystem
         private Vector3 movement = Vector3.zero;
         private float durationLeft;
         private int damage;
+        private AmmoType type;
         
-        public void Init(Vector3 position, Quaternion direction, float speed, int damage)
+        public void Init(Vector3 position, Quaternion direction, float speed, int damage, AmmoType type)
         {
+            this.type = type;
             this.damage = damage;
             if (cachedTransform == null)
                 cachedTransform = transform;
@@ -43,8 +45,7 @@ namespace Game.Gameplay.WeaponsSystem
             PoolManager.Instance.Release(this);
             var collisionLife = other.gameObject.GetComponent<Units.Life>();
             if (collisionLife != null)
-                collisionLife.AddDamage(damage);
-            
+                collisionLife.AddDamage(damage, type);
         }
     }
 }

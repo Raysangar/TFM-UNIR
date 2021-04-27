@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: BasicEnemyWeaponSettings
   m_EditorClassIdentifier: 
   InfiniteAmmo: 1
-  ClipSize: 10
+  ClipSize: 0
+  InfiniteTankSize: 1
+  TankSize: 0
   ProjectileSpeed: 10
   ProjectilePeriod: 1
-  Damange: 1
+  Damage: 1
   Ammo:
-  - ProjectilePrefab: {fileID: 6945576910884391660, guid: 3e74ac418514a89448240fb6c78bf43a, type: 3}
+  - Type: 0
+    ProjectilePrefab: {fileID: 6945576910884391660, guid: 3e74ac418514a89448240fb6c78bf43a, type: 3}
+    Color: {r: 0, g: 0, b: 0, a: 0}

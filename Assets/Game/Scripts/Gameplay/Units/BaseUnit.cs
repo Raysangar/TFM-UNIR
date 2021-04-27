@@ -17,7 +17,7 @@ namespace Game.Gameplay.Units
             Weapon.Init(projectilePosReference, settings.WeaponSettings);
 
             Life = gameObject.AddComponent<Life>();
-            Life.Init(settings.MaxLife);
+            Life.Init(settings.MaxLife, settings.AmmoWeakness);
 
             Movement = gameObject.AddComponent<Movement>();
             Movement.Init(settings.Speed);

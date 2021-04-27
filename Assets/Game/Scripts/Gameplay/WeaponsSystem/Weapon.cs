@@ -5,9 +5,22 @@ namespace Game.Gameplay.WeaponsSystem
 {
     public class Weapon : MonoBehaviour
     {
+        public System.Action OnGasChanged;
+        public System.Action OnAmmoChanged;
+
+        public int CurrentGasInTank { get; private set; }
+
+        public int TankSize => settings.InfiniteTankSize ? int.MaxValue : settings.TankSize;
+        public int CurrentClipSize => settings.InfiniteAmmo ? int.MaxValue : settings.ClipSize;
         public int AmmoTypesCount => clipsPerAmmo.Length;
 
-        private WeaponSettings.AmmoSettings CurrentAmmo => settings.Ammo[equippedAmmoIndex];
+        public int CurrentAmmo
+        {
+            get => clipsPerAmmo [equippedAmmoIndex];
+            set => clipsPerAmmo[equippedAmmoIndex] = value;
+        }
+
+        private WeaponSettings.AmmoSettings CurrentAmmoSettings => settings.Ammo[equippedAmmoIndex];
 
         private Transform projectilePosReference;
         private WeaponSettings settings;
@@ -24,10 +37,11 @@ namespace Game.Gameplay.WeaponsSystem
             this.settings = settings;
 
             clipsPerAmmo = new int[settings.Ammo.Length];
-            int clipSize = settings.InfiniteAmmo ? int.MaxValue : settings.ClipSize;
             for (int i = 0; i < clipsPerAmmo.Length; ++i)
-                clipsPerAmmo[i] = clipSize;
-            
+                clipsPerAmmo[i] = CurrentClipSize;
+
+            CurrentGasInTank = TankSize;
+
             timeSinceLastProjectile = settings.ProjectilePeriod;
             SetEquippedAmmo(0);
         }
@@ -45,11 +59,19 @@ namespace Game.Gameplay.WeaponsSystem
         public void SetEquippedAmmo(int ammoIndex)
         {
             equippedAmmoIndex = ammoIndex;
+            OnAmmoChanged?.Invoke();
         }
 
         public void AddAmmo(int ammoIndex, int amount)
         {
             clipsPerAmmo[ammoIndex] = Mathf.Min(clipsPerAmmo[ammoIndex] + amount, settings.ClipSize);
+            OnAmmoChanged?.Invoke();
+        }
+
+        public void AddGas(int amount)
+        {
+            CurrentGasInTank = Mathf.Min(CurrentGasInTank + amount, TankSize);
+            OnGasChanged?.Invoke();
         }
 
         private void Update()
@@ -60,18 +82,21 @@ namespace Game.Gameplay.WeaponsSystem
             if (isShooting && timeSinceLastProjectile >= settings.ProjectilePeriod)
             {
                 timeSinceLastProjectile -= settings.ProjectilePeriod;
-                ShootProjectile();
+                TryShootProjectile();
             }
         }
 
-        private void ShootProjectile()
+        private void TryShootProjectile()
         {
-            if (clipsPerAmmo[equippedAmmoIndex] > 0)
+            if (CurrentGasInTank > 0 && CurrentAmmo > 0)
             {
-                --clipsPerAmmo[equippedAmmoIndex];
-                var projectile = PoolManager.Instance.GetInstanceFor(CurrentAmmo.ProjectilePrefab);
-                projectile.Init(projectilePosReference.position, projectilePosReference.rotation, 
-                    settings.ProjectileSpeed, settings.Damange);
+                --CurrentAmmo;
+                --CurrentGasInTank;
+                var projectile = PoolManager.Instance.GetInstanceFor(CurrentAmmoSettings.ProjectilePrefab);
+                projectile.Init(projectilePosReference.position, projectilePosReference.rotation,
+                    settings.ProjectileSpeed, settings.Damage, CurrentAmmoSettings.Type);
+                OnGasChanged?.Invoke();
+                OnAmmoChanged?.Invoke();
             }
         }
     }

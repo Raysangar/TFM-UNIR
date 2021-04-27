@@ -12,9 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 100ccb7e10f01ed4f81b9b4e7263fecd, type: 3}
   m_Name: PlayerWeaponSettings
   m_EditorClassIdentifier: 
+  InfiniteAmmo: 0
   ClipSize: 10
+  InfiniteTankSize: 0
+  TankSize: 50
   ProjectileSpeed: 10
   ProjectilePeriod: 1
-  Damange: 1
+  Damage: 5
   Ammo:
-  - ProjectilePrefab: {fileID: 6945576910884391660, guid: a93e0d0114027a9458f3bb13c20f4775, type: 3}
+  - Type: 1
+    ProjectilePrefab: {fileID: 6945576910884391660, guid: a93e0d0114027a9458f3bb13c20f4775, type: 3}
+    Color: {r: 1, g: 0, b: 0, a: 1}
+  - Type: 2
+    ProjectilePrefab: {fileID: 6945576910884391660, guid: a93e0d0114027a9458f3bb13c20f4775, type: 3}
+    Color: {r: 1, g: 0.96372116, b: 0, a: 1}
+  - Type: 3
+    ProjectilePrefab: {fileID: 6945576910884391660, guid: a93e0d0114027a9458f3bb13c20f4775, type: 3}
+    Color: {r: 0, g: 0.053393364, b: 1, a: 1}

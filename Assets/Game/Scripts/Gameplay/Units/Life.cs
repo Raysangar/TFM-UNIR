@@ -10,9 +10,18 @@ namespace Game.Gameplay.Units
         public int Max { get; private set; }
         public int Current { get; private set; }
 
-        public void Init(int maxLife)
+        private WeaponsSystem.AmmoType ammoWeakness;
+
+        public void Init(int maxLife, WeaponsSystem.AmmoType ammoWeakness)
         {
+            this.ammoWeakness = ammoWeakness;
             Max = Current = maxLife;
+        }
+
+        public void AddDamage(int damage, WeaponsSystem.AmmoType ammoType)
+        {
+            if (ammoWeakness == ammoType)
+                AddDamage(damage);
         }
 
         public void AddDamage(int damage)
@@ -32,6 +41,7 @@ namespace Game.Gameplay.Units
         public void AddLife(int amount)
         {
             Current = Mathf.Min(Current + amount, Max);
+            OnChanged?.Invoke();
         }
     }
 }
