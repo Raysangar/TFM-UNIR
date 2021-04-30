@@ -5,6 +5,8 @@ namespace Game.Gameplay
 {
     public class GameManager : MonoBehaviour
     {
+        public Units.PlayerController Player => player;
+
         [SerializeField] Units.PlayerController player;
 
         private void Start()

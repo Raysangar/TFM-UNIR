@@ -9,27 +9,28 @@ namespace Game.Gameplay.WeaponsSystem
         public System.Action OnAmmoChanged;
 
         public int CurrentGasInTank { get; private set; }
+        public int EquippedAmmoIndex { get; private set; }
 
         public int TankSize => settings.InfiniteTankSize ? int.MaxValue : settings.TankSize;
-        public int CurrentClipSize => settings.InfiniteAmmo ? int.MaxValue : settings.ClipSize;
+        public int ClipSize => settings.InfiniteAmmo ? int.MaxValue : settings.ClipSize;
         public int AmmoTypesCount => clipsPerAmmo.Length;
 
-        public int CurrentAmmo
+        public int EquippedAmmo
         {
-            get => clipsPerAmmo [equippedAmmoIndex];
-            set => clipsPerAmmo[equippedAmmoIndex] = value;
+            get => clipsPerAmmo [EquippedAmmoIndex];
+            set => clipsPerAmmo[EquippedAmmoIndex] = value;
         }
 
-        private WeaponSettings.AmmoSettings CurrentAmmoSettings => settings.Ammo[equippedAmmoIndex];
+        private WeaponSettings.AmmoSettings EquippedAmmoSettings => GetAmmoSettings(EquippedAmmoIndex);
 
         private Transform projectilePosReference;
         private WeaponSettings settings;
         private int[] clipsPerAmmo;
         private float timeSinceLastProjectile;
         private bool isShooting;
-        private int equippedAmmoIndex;
 
-        public int GetAmmoLeftForType(int ammoIndex) => clipsPerAmmo[ammoIndex];
+        public WeaponSettings.AmmoSettings GetAmmoSettings(int ammoIndex) => settings.Ammo[ammoIndex];
+        public int GetAmmoLeft(int ammoIndex) => clipsPerAmmo[ammoIndex];
 
         public void Init(Transform projectilePosReference, WeaponSettings settings)
         {
@@ -38,7 +39,7 @@ namespace Game.Gameplay.WeaponsSystem
 
             clipsPerAmmo = new int[settings.Ammo.Length];
             for (int i = 0; i < clipsPerAmmo.Length; ++i)
-                clipsPerAmmo[i] = CurrentClipSize;
+                clipsPerAmmo[i] = ClipSize;
 
             CurrentGasInTank = TankSize;
 
@@ -58,7 +59,7 @@ namespace Game.Gameplay.WeaponsSystem
 
         public void SetEquippedAmmo(int ammoIndex)
         {
-            equippedAmmoIndex = ammoIndex;
+            EquippedAmmoIndex = ammoIndex;
             OnAmmoChanged?.Invoke();
         }
 
@@ -88,13 +89,13 @@ namespace Game.Gameplay.WeaponsSystem
 
         private void TryShootProjectile()
         {
-            if (CurrentGasInTank > 0 && CurrentAmmo > 0)
+            if (CurrentGasInTank > 0 && EquippedAmmo > 0)
             {
-                --CurrentAmmo;
+                --EquippedAmmo;
                 --CurrentGasInTank;
-                var projectile = PoolManager.Instance.GetInstanceFor(CurrentAmmoSettings.ProjectilePrefab);
+                var projectile = PoolManager.Instance.GetInstanceFor(EquippedAmmoSettings.ProjectilePrefab);
                 projectile.Init(projectilePosReference.position, projectilePosReference.rotation,
-                    settings.ProjectileSpeed, settings.Damage, CurrentAmmoSettings.Type);
+                    settings.ProjectileSpeed, settings.Damage, EquippedAmmoSettings.Type);
                 OnGasChanged?.Invoke();
                 OnAmmoChanged?.Invoke();
             }
