@@ -11,6 +11,7 @@ namespace Game.UI.Gameplay
         [SerializeField] HudController hud;
         [SerializeField] AmmoSelectionPanelController ammoSelectionPanel;
         [SerializeField] GameOverPanelController gameOverPanel;
+        [SerializeField] PausePanelController pausePanel;
 
         private GameManager gameManager;
         private PlayerInput input;
@@ -29,6 +30,17 @@ namespace Game.UI.Gameplay
                     break;
             }
                 
+        }
+
+        public void OnPauseInput(InputAction.CallbackContext _)
+        {
+            if (ammoSelectionPanel.IsActive)
+                ammoSelectionPanel.Hide();
+
+            if (pausePanel.IsActive)
+                pausePanel.Hide();
+            else
+                pausePanel.Show();
         }
 
         public void OnLookInput(InputAction.CallbackContext context)
@@ -78,6 +90,9 @@ namespace Game.UI.Gameplay
 
             gameOverPanel.Init(gamepadMenuController);
             gameOverPanel.Init(GainUiFocus, LooseUiFocus);
+
+            pausePanel.Init(gamepadMenuController);
+            pausePanel.Init(GainUiFocus, LooseUiFocus);
         }
 
         private void OnPlayerDeath()

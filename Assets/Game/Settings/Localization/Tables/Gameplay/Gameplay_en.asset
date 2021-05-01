@@ -26,5 +26,9 @@ MonoBehaviour:
     m_Localized: GAME OVER
     m_Metadata:
       m_Items: []
+  - m_Id: 7299000680448
+    m_Localized: PAUSE
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
