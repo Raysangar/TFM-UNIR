@@ -27,6 +27,7 @@ namespace Game.Gameplay
         {
             entitiesManager = new EntitiesManager();
 
+
             Player = Instantiate(playerPrefab);
             Player.OnDeath += OnPlayerDeath;
 
@@ -35,6 +36,8 @@ namespace Game.Gameplay
             var enemies = FindObjectsOfType<Units.EnemyController>(true);
             foreach (var enemy in enemies)
                 enemy.InitBehaviour(Player);
+
+            SceneManager.activeSceneChanged += OnSceneChanged;
         }
 
         private void Update()
@@ -46,7 +49,7 @@ namespace Game.Gameplay
         {
         }
 
-        private void OnDestroy()
+        private void OnSceneChanged(Scene _, Scene __)
         {
             entitiesManager.ReleaseAllEntities();
         }
