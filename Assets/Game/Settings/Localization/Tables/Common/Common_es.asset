@@ -10,28 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: MainMenu_es
+  m_Name: Common_es
   m_EditorClassIdentifier: 
   m_LocaleId:
     m_Code: es
-  m_SharedData: {fileID: 11400000, guid: 98ac646b3875bb24f8eb9223db62515d, type: 2}
+  m_SharedData: {fileID: 11400000, guid: 3806d3daab1641e43a252d2551d5db07, type: 2}
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 19141648384
-    m_Localized: Cargando...
-    m_Metadata:
-      m_Items: []
-  - m_Id: 4138501824512
-    m_Localized: NUEVA PARTIDA
-    m_Metadata:
-      m_Items: []
-  - m_Id: 4378164355072
-    m_Localized: OPCIONES
-    m_Metadata:
-      m_Items: []
-  - m_Id: 5297773895680
-    m_Localized: SALIR
+  - m_Id: 516362321920
+    m_Localized: CONTINUAR
     m_Metadata:
       m_Items: []
   references:

@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using UnityEngine;
+using Core.Utils.Pool;
 
 namespace Core.EntitySystem
 {
@@ -22,6 +22,12 @@ namespace Core.EntitySystem
             Enabled = true;
             foreach (var entity in entities)
                 entity.OnGameplayResumed();
+        }
+
+        public void ReleaseAllEntities()
+        {
+            foreach (var entity in entities)
+                PoolManager.Instance.Release(entity);
         }
 
         public EntitiesManager()

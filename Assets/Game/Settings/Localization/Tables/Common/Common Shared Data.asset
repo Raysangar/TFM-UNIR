@@ -10,25 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
-  m_Name: MainMenu Shared Data
+  m_Name: Common Shared Data
   m_EditorClassIdentifier: 
-  m_TableCollectionName: MainMenu
-  m_TableCollectionNameGuidString: 98ac646b3875bb24f8eb9223db62515d
+  m_TableCollectionName: Common
+  m_TableCollectionNameGuidString: 3806d3daab1641e43a252d2551d5db07
   m_Entries:
-  - m_Id: 19141648384
-    m_Key: loading
-    m_Metadata:
-      m_Items: []
-  - m_Id: 4138501824512
-    m_Key: new_game
-    m_Metadata:
-      m_Items: []
-  - m_Id: 4378164355072
-    m_Key: settings
-    m_Metadata:
-      m_Items: []
-  - m_Id: 5297773895680
-    m_Key: exit
+  - m_Id: 516362321920
+    m_Key: continue
     m_Metadata:
       m_Items: []
   m_Metadata:
@@ -40,4 +28,4 @@ MonoBehaviour:
     00000000:
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
-        m_CustomEpoch: 1616691052162
+        m_CustomEpoch: 1619898739769

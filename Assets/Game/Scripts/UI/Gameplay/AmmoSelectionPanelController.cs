@@ -4,40 +4,44 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using Game.Gameplay.Units;
 
-namespace Game.UI
+namespace Game.UI.Gameplay
 {
-    public class AmmoSelectionPanelController : MonoBehaviour
+    public class AmmoSelectionPanelController : BasePanelController
     {
-        public bool IsShowing { get; private set; }
-
         [SerializeField] AmmoSelectionWidget ammoSelectionWidgetPrefab;
         [SerializeField] RectTransform ammoSelectionWidgetsParent;
 
         private PlayerController player;
         private AmmoSelectionWidget[] ammoSelectionWidgets;
         private int lastHoveredAmmo;
-        private System.Action gainUiFocusCallback;
-        private System.Action looseUiFocusCallback;
+        private bool equipLastAmmoHoveredBeforeHiding;
+        private bool canEquipOnNextHiding;
 
-        public void Show()
+        public override void Show()
         {
-            gameObject.SetActive(true);
-            IsShowing = true;
             int ammoTypesCount = player.Weapon.AmmoTypesCount;
             for (int i = 0; i < ammoTypesCount; ++i)
                 ammoSelectionWidgets[i].SetAmmoCounter(player.Weapon.GetAmmoLeft(i), player.Weapon.ClipSize);
             lastHoveredAmmo = player.Weapon.EquippedAmmoIndex;
             EventSystem.current.SetSelectedGameObject(ammoSelectionWidgets[lastHoveredAmmo].gameObject);
-            gainUiFocusCallback();
+            gameObject.SetActive(true);
+            IsActive = true;
+            canEquipOnNextHiding = true;
         }
 
-        public void Hide(bool equipLastAmmoHovered = false)
+        public override void Hide()
         {
-            if (equipLastAmmoHovered)
+            if (canEquipOnNextHiding && equipLastAmmoHoveredBeforeHiding)
                 EquipAmmo(lastHoveredAmmo);
             gameObject.SetActive(false);
-            IsShowing = false;
-            looseUiFocusCallback();
+            IsActive = false;
+        }
+
+        public void OnSubmitInput()
+        {
+            EquipAmmo(lastHoveredAmmo);
+            canEquipOnNextHiding = false;
+            Hide();
         }
 
         public void OnJoystickSelectionInput(InputAction.CallbackContext context)
@@ -57,22 +61,16 @@ namespace Game.UI
             SetSelectedAmmoOnAngle(angle);
         }
 
-        public void OnSubmitInput()
-        {
-            OnAmmoIndexSelected(lastHoveredAmmo);
-        }
-
         private void SetSelectedAmmoOnAngle(float angle)
         {
             lastHoveredAmmo = (int)(angle / (360f / player.Weapon.AmmoTypesCount));
             EventSystem.current.SetSelectedGameObject(ammoSelectionWidgets[lastHoveredAmmo].gameObject);
         }
 
-        public void Init(PlayerController player, System.Action gainUiFocusCallback, System.Action looseUiFocusCallback)
+        public void Init(PlayerController player, bool equipLastAmmoHoveredBeforeHiding)
         {
             this.player = player;
-            this.gainUiFocusCallback = gainUiFocusCallback;
-            this.looseUiFocusCallback = looseUiFocusCallback;
+            this.equipLastAmmoHoveredBeforeHiding = equipLastAmmoHoveredBeforeHiding;
 
             int ammoTypesCount = player.Weapon.AmmoTypesCount;
             ammoSelectionWidgets = new AmmoSelectionWidget[ammoTypesCount];
@@ -81,13 +79,6 @@ namespace Game.UI
                 ammoSelectionWidgets[i] = Instantiate(ammoSelectionWidgetPrefab, ammoSelectionWidgetsParent);
                 ammoSelectionWidgets[i].Init(player.Weapon.GetAmmoSettings(i), ammoTypesCount, i);
             }
-            Hide();
-        }
-
-        private void OnAmmoIndexSelected(int ammoIndex)
-        {
-            EquipAmmo(ammoIndex);
-            Hide();
         }
 
         private void EquipAmmo(int ammoIndex)

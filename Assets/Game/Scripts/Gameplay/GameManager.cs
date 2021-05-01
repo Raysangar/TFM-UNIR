@@ -44,8 +44,11 @@ namespace Game.Gameplay
 
         private void OnPlayerDeath()
         {
-            SceneManager.LoadScene(2);
-            Debug.Log("Game Over");
+        }
+
+        private void OnDestroy()
+        {
+            entitiesManager.ReleaseAllEntities();
         }
     }
 }

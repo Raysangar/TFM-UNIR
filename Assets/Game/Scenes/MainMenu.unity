@@ -662,9 +662,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableCollectionName: GUID:98ac646b3875bb24f8eb9223db62515d
+      m_TableCollectionName: GUID:3806d3daab1641e43a252d2551d5db07
     m_TableEntryReference:
-      m_KeyId: 4184777580544
+      m_KeyId: 516362321920
       m_Key: 
     m_FallbackState: 0
   m_FormatArguments: []

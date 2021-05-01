@@ -1,17 +1,20 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Game.Gameplay;
+using Core.Utils.UI;
 
-namespace Game.UI
+namespace Game.UI.Gameplay
 {
-    [RequireComponent(typeof(GameManager), typeof(PlayerInput))]
+    [RequireComponent(typeof(GameManager), typeof(PlayerInput), typeof(GamepadMenuController))]
     public class GameplayUiManager : MonoBehaviour
     {
         [SerializeField] HudController hud;
         [SerializeField] AmmoSelectionPanelController ammoSelectionPanel;
+        [SerializeField] GameOverPanelController gameOverPanel;
 
         private GameManager gameManager;
         private PlayerInput input;
+        private GamepadMenuController gamepadMenuController;
 
         public void ToggleAmmoSelectionPanel(InputAction.CallbackContext context)
         {
@@ -21,7 +24,8 @@ namespace Game.UI
                     ammoSelectionPanel.Show();
                     break;
                 case InputActionPhase.Canceled:
-                    ammoSelectionPanel.Hide(equipLastAmmoHovered: input.currentControlScheme != "KeyBoardMouse");
+                    if (ammoSelectionPanel.IsActive)
+                        ammoSelectionPanel.Hide();
                     break;
             }
                 
@@ -29,19 +33,19 @@ namespace Game.UI
 
         public void OnLookInput(InputAction.CallbackContext context)
         {
-            if (ammoSelectionPanel.IsShowing)
+            if (ammoSelectionPanel.IsActive)
                 ammoSelectionPanel.OnJoystickSelectionInput(context);
         }
 
         public void OnLookAtInput(InputAction.CallbackContext context)
         {
-            if (ammoSelectionPanel.IsShowing)
+            if (ammoSelectionPanel.IsActive)
                 ammoSelectionPanel.OnMouseSelectionInput(context);
         }
 
         public void OnSubmitInput(InputAction.CallbackContext _)
         {
-            if (ammoSelectionPanel.IsShowing)
+            if (ammoSelectionPanel.IsActive)
                 ammoSelectionPanel.OnSubmitInput();
         }
 
@@ -59,19 +63,27 @@ namespace Game.UI
         {
             gameManager = GetComponent<GameManager>();
             input = GetComponent<PlayerInput>();
+            gamepadMenuController = GetComponent<GamepadMenuController>();
 
+            gamepadMenuController.ForceSelectionTo(null);
             gameManager.Player.OnDeath += OnPlayerDeath;
         }
 
         private void Start()
         {
             hud.Init(gameManager.Player);
-            ammoSelectionPanel.Init(gameManager.Player, GainUiFocus, LooseUiFocus);
+            
+            ammoSelectionPanel.Init(gameManager.Player, equipLastAmmoHoveredBeforeHiding: input.currentControlScheme != "KeyBoardMouse");
+            ammoSelectionPanel.Init(GainUiFocus, LooseUiFocus);
+
+            gameOverPanel.Init(gamepadMenuController);
+            gameOverPanel.Init(GainUiFocus, LooseUiFocus);
         }
 
         private void OnPlayerDeath()
         {
-            //TODO: Game over popup
+            input.enabled = false;
+            gameOverPanel.Show();
         }
     }
 }
