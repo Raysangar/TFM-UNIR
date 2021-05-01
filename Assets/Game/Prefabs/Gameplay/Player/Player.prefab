@@ -94,9 +94,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!1 &4172735212381905499
 GameObject:
@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3de639889d9d16d4e834800bc11431b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
   projectilePosReference: {fileID: 4172735212469851415}
   settings: {fileID: 11400000, guid: 7b6fcd8a3e272a042aa4bc401a2b84dd, type: 2}
 --- !u!114 &4172735212381905497
@@ -277,6 +278,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 52d5315f-9635-4d1a-bed2-f71d006d48b9
     m_ActionName: Player/LookAt[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a826688d-797e-4628-87b5-657597889175
+    m_ActionName: Player/AmmoSelector[/Keyboard/leftShift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -308,7 +313,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0

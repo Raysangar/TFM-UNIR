@@ -1,8 +1,9 @@
 using UnityEngine;
+using Core.EntitySystem;
 
 namespace Game.Gameplay.Units
 {
-    public abstract class BaseUnit<T> : MonoBehaviour where T : BaseUnitSettings
+    public abstract class BaseUnit<T> : Entity where T : BaseUnitSettings
     {
         public WeaponsSystem.Weapon Weapon { get; private set; }
         public Life Life { get; private set; }
@@ -11,16 +12,18 @@ namespace Game.Gameplay.Units
         [SerializeField] protected Transform projectilePosReference;
         [SerializeField] protected T settings;
 
-        protected virtual void Awake()
+        protected override void Awake()
         {
-            Weapon = gameObject.AddComponent<WeaponsSystem.Weapon>();
-            Weapon.Init(projectilePosReference, settings.WeaponSettings);
+            base.Awake();
 
-            Life = gameObject.AddComponent<Life>();
-            Life.Init(settings.MaxLife, settings.AmmoWeakness);
+            Weapon = new WeaponsSystem.Weapon(projectilePosReference, settings.WeaponSettings);
+            components.Add(Weapon);
 
-            Movement = gameObject.AddComponent<Movement>();
-            Movement.Init(settings.Speed);
+            Life = new Life(settings.MaxLife, settings.AmmoWeakness);
+            components.Add(Life);
+
+            Movement = new Movement(settings.Speed);
+            components.Add(Movement);
         }
     }
 }

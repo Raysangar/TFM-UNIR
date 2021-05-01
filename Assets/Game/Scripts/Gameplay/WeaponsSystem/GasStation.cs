@@ -1,8 +1,9 @@
 using UnityEngine;
+using Core.EntitySystem;
 
 namespace Game.Gameplay.WeaponsSystem
 {
-    public class GasStation : MonoBehaviour
+    public class GasStation : Entity
     {
         [SerializeField] int gasToAddPerSecond;
 
@@ -10,8 +11,9 @@ namespace Game.Gameplay.WeaponsSystem
         private float timeSinceLastGasAdding;
         private Weapon playerWeapon;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             playerWeapon = null;
             addGasPeriodInSeconds = 1f / gasToAddPerSecond;
         }
@@ -22,17 +24,19 @@ namespace Game.Gameplay.WeaponsSystem
             timeSinceLastGasAdding = 0;
         }
 
-        private void Update()
+        public override void UpdateBehaviour(float deltaTime)
         {
             if (playerWeapon != null)
             {
-                timeSinceLastGasAdding += Time.deltaTime;
+                timeSinceLastGasAdding += deltaTime;
                 if (timeSinceLastGasAdding >= addGasPeriodInSeconds)
                 {
                     timeSinceLastGasAdding -= addGasPeriodInSeconds;
                     playerWeapon.AddGas(1);
                 }
             }
+
+            base.UpdateBehaviour(deltaTime);
         }
 
         private void OnTriggerExit(Collider other)

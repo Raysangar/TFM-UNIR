@@ -45,6 +45,16 @@ namespace Game.UI
                 ammoSelectionPanel.OnSubmitInput();
         }
 
+        private void GainUiFocus()
+        {
+            gameManager.Pause();
+        }
+
+        private void LooseUiFocus()
+        {
+            gameManager.Resume();
+        }
+
         private void Awake()
         {
             gameManager = GetComponent<GameManager>();
@@ -56,7 +66,7 @@ namespace Game.UI
         private void Start()
         {
             hud.Init(gameManager.Player);
-            ammoSelectionPanel.Init(gameManager.Player);
+            ammoSelectionPanel.Init(gameManager.Player, GainUiFocus, LooseUiFocus);
         }
 
         private void OnPlayerDeath()

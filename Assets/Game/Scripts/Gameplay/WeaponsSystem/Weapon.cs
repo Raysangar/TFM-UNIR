@@ -1,9 +1,10 @@
 using UnityEngine;
 using Core.Utils.Pool;
+using Core.EntitySystem;
 
 namespace Game.Gameplay.WeaponsSystem
 {
-    public class Weapon : MonoBehaviour
+    public class Weapon : EntityComponent
     {
         public System.Action OnGasChanged;
         public System.Action OnAmmoChanged;
@@ -32,7 +33,7 @@ namespace Game.Gameplay.WeaponsSystem
         public WeaponSettings.AmmoSettings GetAmmoSettings(int ammoIndex) => settings.Ammo[ammoIndex];
         public int GetAmmoLeft(int ammoIndex) => clipsPerAmmo[ammoIndex];
 
-        public void Init(Transform projectilePosReference, WeaponSettings settings)
+        public Weapon(Transform projectilePosReference, WeaponSettings settings)
         {
             this.projectilePosReference = projectilePosReference;
             this.settings = settings;
@@ -75,10 +76,10 @@ namespace Game.Gameplay.WeaponsSystem
             OnGasChanged?.Invoke();
         }
 
-        private void Update()
+        public override void UpdateBehaviour(float deltaTime)
         {
             if (timeSinceLastProjectile < settings.ProjectilePeriod)
-                timeSinceLastProjectile += Time.deltaTime;
+                timeSinceLastProjectile += deltaTime;
 
             if (isShooting && timeSinceLastProjectile >= settings.ProjectilePeriod)
             {

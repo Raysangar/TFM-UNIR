@@ -1,23 +1,30 @@
 using UnityEngine;
+using Core.EntitySystem;
 
 namespace Game.Gameplay
 {
-    public class CameraController : MonoBehaviour
+    public class CameraController : Entity
     {
-        [SerializeField] Transform player;
+        private Transform player;
         [SerializeField] Vector3 distanceFromPlayer;
 
         private Transform cachedTransform;
 
-        private void Awake()
+        public void Init(Transform player)
         {
+            this.player = player;
+        }
+
+        protected override void Awake()
+        {
+            base.Awake();
             cachedTransform = transform;
         }
 
-        private void Update()
+        public override void UpdateBehaviour(float deltaTime)
         {
             cachedTransform.position = player.position + distanceFromPlayer;
+            base.UpdateBehaviour(deltaTime);
         }
-
     }
 }

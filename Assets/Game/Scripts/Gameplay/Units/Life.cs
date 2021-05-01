@@ -1,8 +1,9 @@
 using UnityEngine;
+using Core.EntitySystem;
 
 namespace Game.Gameplay.Units
 {
-    public class Life : MonoBehaviour
+    public class Life : EntityComponent
     {
         public System.Action OnDeath;
         public System.Action OnChanged;
@@ -12,7 +13,7 @@ namespace Game.Gameplay.Units
 
         private WeaponsSystem.AmmoType ammoWeakness;
 
-        public void Init(int maxLife, WeaponsSystem.AmmoType ammoWeakness)
+        public Life(int maxLife, WeaponsSystem.AmmoType ammoWeakness)
         {
             this.ammoWeakness = ammoWeakness;
             Max = Current = maxLife;

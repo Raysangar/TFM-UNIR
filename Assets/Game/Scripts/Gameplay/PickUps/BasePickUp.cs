@@ -1,17 +1,17 @@
 using UnityEngine;
-using Core.Utils.Pool;
+using Core.EntitySystem;
 using Game.Gameplay.Units;
 
 namespace Game.Gameplay.Pickups
 {
-    public abstract class BasePickup : PoolObject
+    public abstract class BasePickup : Entity
     {
         protected abstract void Activate(PlayerController player);
 
         private void OnTriggerEnter(Collider other)
         {
-            Activate(other.GetComponent<Units.PlayerController>());
-            PoolManager.Instance.Release(this);
+            Activate(other.GetComponent<PlayerController>());
+            RemoveFromScene();
         }
     }
 }

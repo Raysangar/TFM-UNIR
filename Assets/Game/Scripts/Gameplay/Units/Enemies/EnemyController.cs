@@ -17,13 +17,7 @@ namespace Game.Gameplay.Units
             this.player = player;
         }
 
-        private void Update()
-        {
-            if (player != null)
-                UdateBehaviour();
-        }
-
-        private void UdateBehaviour()
+        public override void UpdateBehaviour(float deltaTime)
         {
             var playerPosition = player.Movement.Position;
             Movement.SetLookTarget(playerPosition);
@@ -32,11 +26,13 @@ namespace Game.Gameplay.Units
                 Weapon.StartShooting();
             else
                 Weapon.StopShooting();
+
+            base.UpdateBehaviour(deltaTime);
         }
 
         private void OnDeathCallback()
         {
-            gameObject.SetActive(false);
+            RemoveFromScene();
         }
     }
 }

@@ -12,6 +12,18 @@ namespace Game.Gameplay.Units
         private PlayerInput playerInput;
         private Vector3? mousePosition;
 
+        public override void OnGameplayPaused()
+        {
+            base.OnGameplayPaused();
+            playerInput.enabled = false;
+        }
+
+        public override void OnGameplayResumed()
+        {
+            base.OnGameplayResumed();
+            playerInput.enabled = true;
+        }
+
         protected override void Awake()
         {
             base.Awake();
@@ -48,10 +60,11 @@ namespace Game.Gameplay.Units
                 Weapon.StopShooting();
         }
 
-        private void Update()
+        public override void UpdateBehaviour(float deltaTime)
         {
             if (mousePosition.HasValue)
                 Movement.SetLookTarget(mainCamera.ScreenToWorldPoint(mousePosition.Value));
+            base.UpdateBehaviour(deltaTime);
         }
 
         private void OnDeathCallback()

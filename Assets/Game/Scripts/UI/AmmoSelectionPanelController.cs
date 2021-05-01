@@ -16,6 +16,8 @@ namespace Game.UI
         private PlayerController player;
         private AmmoSelectionWidget[] ammoSelectionWidgets;
         private int lastHoveredAmmo;
+        private System.Action gainUiFocusCallback;
+        private System.Action looseUiFocusCallback;
 
         public void Show()
         {
@@ -26,6 +28,7 @@ namespace Game.UI
                 ammoSelectionWidgets[i].SetAmmoCounter(player.Weapon.GetAmmoLeft(i), player.Weapon.ClipSize);
             lastHoveredAmmo = player.Weapon.EquippedAmmoIndex;
             EventSystem.current.SetSelectedGameObject(ammoSelectionWidgets[lastHoveredAmmo].gameObject);
+            gainUiFocusCallback();
         }
 
         public void Hide(bool equipLastAmmoHovered = false)
@@ -34,6 +37,7 @@ namespace Game.UI
                 EquipAmmo(lastHoveredAmmo);
             gameObject.SetActive(false);
             IsShowing = false;
+            looseUiFocusCallback();
         }
 
         public void OnJoystickSelectionInput(InputAction.CallbackContext context)
@@ -61,13 +65,15 @@ namespace Game.UI
         private void SetSelectedAmmoOnAngle(float angle)
         {
             lastHoveredAmmo = (int)(angle / (360f / player.Weapon.AmmoTypesCount));
-            Debug.Log(angle + " " + lastHoveredAmmo);
             EventSystem.current.SetSelectedGameObject(ammoSelectionWidgets[lastHoveredAmmo].gameObject);
         }
 
-        public void Init(PlayerController player)
+        public void Init(PlayerController player, System.Action gainUiFocusCallback, System.Action looseUiFocusCallback)
         {
             this.player = player;
+            this.gainUiFocusCallback = gainUiFocusCallback;
+            this.looseUiFocusCallback = looseUiFocusCallback;
+
             int ammoTypesCount = player.Weapon.AmmoTypesCount;
             ammoSelectionWidgets = new AmmoSelectionWidget[ammoTypesCount];
             for (int i = 0; i < ammoTypesCount; ++i)

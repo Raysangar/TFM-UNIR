@@ -1,25 +1,29 @@
 using UnityEngine;
+using Core.EntitySystem;
 
 namespace Game.Gameplay.Units
 {
-    public class Movement : MonoBehaviour
+    public class Movement : EntityComponent
     {
         public Vector3 Position => cachedTransform.position;
+
+        private readonly float speed;
 
         private Transform cachedTransform;
         private Vector3 currentMovement;
         private Vector3 currentTarget;
-        private float speed;
 
-        public void Init(float speed)
+        public Movement(float speed)
         {
             this.speed = speed;
+            currentMovement = Vector3.zero;
+            currentTarget = Vector3.forward;
         }
 
-        private void Awake()
+        public override void Init(Entity entity)
         {
-            cachedTransform = transform;
-            currentMovement = Vector3.zero;
+            base.Init(entity);
+            cachedTransform = entity.transform;
         }
 
         public void SetMovement(Vector3 movement)
@@ -37,15 +41,15 @@ namespace Game.Gameplay.Units
             cachedTransform.localRotation = rotation;
         }
 
-        private void Update()
+        public override void UpdateBehaviour(float deltaTime)
         {
-            UpdateMovement();
+            UpdateMovement(deltaTime);
             UpdateAim();
         }
 
-        private void UpdateMovement()
+        private void UpdateMovement(float deltaTime)
         {
-            cachedTransform.Translate(currentMovement * Time.deltaTime, Space.World);
+            cachedTransform.Translate(currentMovement * deltaTime, Space.World);
         }
 
         private void UpdateAim()
