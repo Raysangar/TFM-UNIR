@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f1ac53a47c702f4eb4551989a2015a9, type: 3}
   m_Name: BasicEnemySettings
   m_EditorClassIdentifier: 
-  Speed: 10
+  Speed: 5
   MaxLife: 2
   WeaponSettings: {fileID: 11400000, guid: 080efc5770a7edb4892e5a2f3c382875, type: 2}
   AmmoWeakness: 1
+  DistanceToPlayerToStartFollowing: 10
   DistanceToPlayerToStartShooting: 5

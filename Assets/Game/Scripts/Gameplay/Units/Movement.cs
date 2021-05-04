@@ -13,16 +13,11 @@ namespace Game.Gameplay.Units
         private Vector3 currentMovement;
         private Vector3 currentTarget;
 
-        public Movement(float speed)
+        public Movement(Entity entity, float speed) : base(entity)
         {
             this.speed = speed;
             currentMovement = Vector3.zero;
             currentTarget = Vector3.forward;
-        }
-
-        public override void Init(Entity entity)
-        {
-            base.Init(entity);
             cachedTransform = entity.transform;
         }
 

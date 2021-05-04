@@ -8,35 +8,47 @@ namespace Core.EntitySystem
         public static System.Action<Entity> OnRemovedFromScene;
         public static System.Action<Entity> OnSpawnedToScene;
 
-        protected List<EntityComponent> components;
+        protected List<EntityComponent> enabledComponents;
+        protected List<EntityComponent> disabledComponents;
 
         protected virtual void Awake()
         {
-            components = new List<EntityComponent>();
+            enabledComponents = new List<EntityComponent>();
+            disabledComponents = new List<EntityComponent>();
         }
 
         protected virtual void Start()
         {
             OnSpawnedToScene(this);
-            foreach (var component in components)
-                component.Init(this);
+        }
+
+        public void Enable(EntityComponent component)
+        {
+            disabledComponents.Remove(component);
+            enabledComponents.Add(component);
+        }
+
+        public void Disable(EntityComponent component)
+        {
+            enabledComponents.Remove(component);
+            disabledComponents.Add(component);
         }
 
         public virtual void UpdateBehaviour(float deltaTime)
         {
-            foreach (var component in components)
+            foreach (var component in enabledComponents)
                 component.UpdateBehaviour(deltaTime);
         }
 
         public virtual void OnGameplayPaused()
         {
-            foreach (var component in components)
+            foreach (var component in enabledComponents)
                 component.OnGameplayPaused();
         }
 
         public virtual void OnGameplayResumed()
         {
-            foreach (var component in components)
+            foreach (var component in enabledComponents)
                 component.OnGameplayResumed();
         }
 

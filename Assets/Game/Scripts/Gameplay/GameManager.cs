@@ -10,6 +10,7 @@ namespace Game.Gameplay
 
         [SerializeField] Units.PlayerController playerPrefab;
         [SerializeField] CameraController cameraController;
+        [SerializeField] Transform[] enemyPatrolNodes;
 
         private EntitiesManager entitiesManager;
 
@@ -35,7 +36,7 @@ namespace Game.Gameplay
         
             var enemies = FindObjectsOfType<Units.EnemyController>(true);
             foreach (var enemy in enemies)
-                enemy.InitBehaviour(Player);
+                enemy.InitBehaviour(Player, enemyPatrolNodes);
 
             SceneManager.activeSceneChanged += OnSceneChanged;
         }

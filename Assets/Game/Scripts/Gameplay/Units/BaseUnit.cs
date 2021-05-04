@@ -16,14 +16,14 @@ namespace Game.Gameplay.Units
         {
             base.Awake();
 
-            Weapon = new WeaponsSystem.Weapon(projectilePosReference, settings.WeaponSettings);
-            components.Add(Weapon);
+            Weapon = new WeaponsSystem.Weapon(this, projectilePosReference, settings.WeaponSettings);
+            enabledComponents.Add(Weapon);
 
-            Life = new Life(settings.MaxLife, settings.AmmoWeakness);
-            components.Add(Life);
+            Life = new Life(this, settings.MaxLife, settings.AmmoWeakness);
+            enabledComponents.Add(Life);
 
-            Movement = new Movement(settings.Speed);
-            components.Add(Movement);
+            Movement = new Movement(this, settings.Speed);
+            enabledComponents.Add(Movement);
         }
     }
 }

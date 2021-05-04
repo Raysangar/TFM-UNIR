@@ -11,28 +11,41 @@ namespace Game.Gameplay.WeaponsSystem
         private Transform cachedTransform;
         private Vector3 movement = Vector3.zero;
         private float durationLeft;
-        private int damage;
         private AmmoType type;
+        private WeaponSettings.ProjectileSettings settings;
+        private float distanceTraveled;
         
-        public void Init(Vector3 position, Quaternion direction, float speed, int damage, AmmoType type)
+        public void Init(Transform startingTransform, AmmoType type, WeaponSettings.ProjectileSettings settings)
         {
             this.type = type;
-            this.damage = damage;
+            this.settings = settings;
             if (cachedTransform == null)
                 cachedTransform = transform;
-            cachedTransform.position = position;
-            cachedTransform.rotation = direction;
-            movement.z = speed;
+            cachedTransform.position = startingTransform.position;
+            cachedTransform.rotation = startingTransform.rotation;
+            movement.z = settings.Speed;
             durationLeft = DURATION_IN_SECONDS;
+            distanceTraveled = 0;
         }
 
         public override void UpdateBehaviour(float deltaTime)
         {
             durationLeft -= deltaTime;
             if (durationLeft <= 0)
+            {
                 OnReachedEndOfLifetime();
+            }
             else
-                cachedTransform.Translate(movement * deltaTime);
+            {
+                Vector3 translation = movement * deltaTime;
+                if (distanceTraveled < settings.StartFallingAfterDistance)
+                {
+                    distanceTraveled += translation.magnitude;
+                    if (distanceTraveled >= settings.StartFallingAfterDistance)
+                        movement.y = -settings.FallSpeed;
+                }
+                cachedTransform.Translate(translation);
+            }
 
             base.UpdateBehaviour(deltaTime);
         }
@@ -44,10 +57,22 @@ namespace Game.Gameplay.WeaponsSystem
 
         private void OnTriggerEnter(Collider other)
         {
-            var player = other.gameObject.GetComponent<Units.PlayerController>();
-            var life = player == null ? other.gameObject.GetComponent<Units.EnemyController>().Life : player.Life;
-            life.AddDamage(damage, type);
+            switch(other.gameObject.layer)
+            {
+                case Constants.PhysicLayers.Player:
+                    var player = other.gameObject.GetComponent<Units.PlayerController>();
+                    player.Life.AddDamage(settings.Damage, type);
+                    break;
+                case Constants.PhysicLayers.Enemies:
+                    var enemy = other.gameObject.GetComponent<Units.EnemyController>();
+                    enemy.Life.AddDamage(settings.Damage, type);
+                    break;
+                default:
+                    break;
+
+            }
             PoolManager.Instance.Release(this);
         }
+
     }
 }

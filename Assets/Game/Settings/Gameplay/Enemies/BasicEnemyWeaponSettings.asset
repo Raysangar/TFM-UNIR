@@ -16,10 +16,16 @@ MonoBehaviour:
   ClipSize: 0
   InfiniteTankSize: 1
   TankSize: 0
-  ProjectileSpeed: 10
   ProjectilePeriod: 1
-  Damage: 1
   Ammo:
   - Type: 0
     ProjectilePrefab: {fileID: 6945576910884391660, guid: 3e74ac418514a89448240fb6c78bf43a, type: 3}
     Color: {r: 0, g: 0, b: 0, a: 0}
+  ProjectilesSettingsForTankState:
+  - applyFromTankLeftPercentage: 0
+    applyUntilTankLeftPercentage: 100
+    Settings:
+      Speed: 10
+      StartFallingAfterDistance: 0
+      FallSpeed: 0
+      Damage: 1

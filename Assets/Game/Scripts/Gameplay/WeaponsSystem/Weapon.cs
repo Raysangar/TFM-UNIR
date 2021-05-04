@@ -33,7 +33,7 @@ namespace Game.Gameplay.WeaponsSystem
         public WeaponSettings.AmmoSettings GetAmmoSettings(int ammoIndex) => settings.Ammo[ammoIndex];
         public int GetAmmoLeft(int ammoIndex) => clipsPerAmmo[ammoIndex];
 
-        public Weapon(Transform projectilePosReference, WeaponSettings settings)
+        public Weapon(Entity entity, Transform projectilePosReference, WeaponSettings settings) : base(entity)
         {
             this.projectilePosReference = projectilePosReference;
             this.settings = settings;
@@ -95,8 +95,8 @@ namespace Game.Gameplay.WeaponsSystem
                 --EquippedAmmo;
                 --CurrentGasInTank;
                 var projectile = PoolManager.Instance.GetInstanceFor(EquippedAmmoSettings.ProjectilePrefab);
-                projectile.Init(projectilePosReference.position, projectilePosReference.rotation,
-                    settings.ProjectileSpeed, settings.Damage, EquippedAmmoSettings.Type);
+                var projectileSettings = settings.GetCurrentProjectileSettings(CurrentGasInTank, TankSize);
+                projectile.Init(projectilePosReference, EquippedAmmoSettings.Type, projectileSettings);
                 OnGasChanged?.Invoke();
                 OnAmmoChanged?.Invoke();
             }

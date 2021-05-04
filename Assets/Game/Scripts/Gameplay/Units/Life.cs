@@ -13,7 +13,7 @@ namespace Game.Gameplay.Units
 
         private WeaponsSystem.AmmoType ammoWeakness;
 
-        public Life(int maxLife, WeaponsSystem.AmmoType ammoWeakness)
+        public Life(Entity entity, int maxLife, WeaponsSystem.AmmoType ammoWeakness) : base(entity)
         {
             this.ammoWeakness = ammoWeakness;
             Max = Current = maxLife;
