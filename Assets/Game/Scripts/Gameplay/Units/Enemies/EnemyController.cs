@@ -36,9 +36,12 @@ namespace Game.Gameplay.Units
 
         private void PatrolBehaviour(float deltaTime)
         {
-            if (Vector3.Distance(Movement.Position, patrolNodes[targetPatrolNode].position) < Constants.DistanceThreshold)
-                targetPatrolNode = ++targetPatrolNode % patrolNodes.Length;
-            GoTo(patrolNodes[targetPatrolNode].position);
+            if (patrolNodes.Length > 0)
+            {
+                if (Vector3.Distance(Movement.Position, patrolNodes[targetPatrolNode].position) < Constants.DistanceThreshold)
+                    targetPatrolNode = ++targetPatrolNode % patrolNodes.Length;
+                GoTo(patrolNodes[targetPatrolNode].position);
+            }
         }
 
         private bool ShouldFollowPlayer()
