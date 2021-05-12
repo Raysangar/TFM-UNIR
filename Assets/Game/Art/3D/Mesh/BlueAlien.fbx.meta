@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c397d702b9a5e9848a828d312ea52125
+guid: b49df4618c29fd0499e42fbd2a854da2
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -7,23 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Body_M
-    second: {fileID: 2100000, guid: 7b11bfa958d9d2b429e10afd0f36570e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: GasTank_M
-    second: {fileID: 2100000, guid: c7dd12553bdfa294e9ed0b07b80970de, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Head_M
-    second: {fileID: 2100000, guid: b1025a5dc1c068f4fa440105c2caf6be, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Pants_M
-    second: {fileID: 2100000, guid: 6caff993c33422f4f8fa5e08a48b7a4b, type: 2}
+      name: Alien_M
+    second: {fileID: 2100000, guid: 48007359e038ea64cb6639633790aa54, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
