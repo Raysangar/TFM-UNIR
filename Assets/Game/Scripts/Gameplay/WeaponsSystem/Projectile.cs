@@ -6,6 +6,8 @@ namespace Game.Gameplay.WeaponsSystem
 {
     public class Projectile : Entity
     {
+        [SerializeField] Renderer projectileRenderer;
+
         private const float DURATION_IN_SECONDS = 5;
 
         private Transform cachedTransform;
@@ -15,14 +17,19 @@ namespace Game.Gameplay.WeaponsSystem
         private WeaponSettings.ProjectileSettings settings;
         private float distanceTraveled;
         
-        public void Init(Transform startingTransform, AmmoType type, WeaponSettings.ProjectileSettings settings)
+        public void Init(Transform startingTransform, WeaponSettings.AmmoSettings ammoSettings, WeaponSettings.ProjectileSettings settings)
         {
-            this.type = type;
             this.settings = settings;
+            type = ammoSettings.Type;
+
+            if (type != AmmoType.Enemy)
+                projectileRenderer.material.color = ammoSettings.Color;
+            
             if (cachedTransform == null)
                 cachedTransform = transform;
             cachedTransform.position = startingTransform.position;
             cachedTransform.rotation = startingTransform.rotation;
+            
             movement.z = settings.Speed;
             durationLeft = DURATION_IN_SECONDS;
             distanceTraveled = 0;

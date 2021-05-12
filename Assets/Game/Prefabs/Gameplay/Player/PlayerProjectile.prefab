@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6945576910884391660}
   - component: {fileID: 6742269277273316364}
   m_Layer: 7
-  m_Name: RedProjectile
+  m_Name: PlayerProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  projectileRenderer: {fileID: 6945576911009353677}
 --- !u!135 &6742269277273316364
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -118,7 +119,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 2100000, guid: 51258289db459164d9211da2f74c4e27, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

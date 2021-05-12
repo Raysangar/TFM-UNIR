@@ -96,7 +96,7 @@ namespace Game.Gameplay.WeaponsSystem
                 --CurrentGasInTank;
                 var projectile = PoolManager.Instance.GetInstanceFor(EquippedAmmoSettings.ProjectilePrefab);
                 var projectileSettings = settings.GetCurrentProjectileSettings(CurrentGasInTank, TankSize);
-                projectile.Init(projectilePosReference, EquippedAmmoSettings.Type, projectileSettings);
+                projectile.Init(projectilePosReference, EquippedAmmoSettings, projectileSettings);
                 OnGasChanged?.Invoke();
                 OnAmmoChanged?.Invoke();
             }
