@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c3cdbb6080fca44958a4687a8beba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 1
+  id: 5
+  projectileRenderer: {fileID: 0}
 --- !u!135 &7499002883022419290
 SphereCollider:
   m_ObjectHideFlags: 0
