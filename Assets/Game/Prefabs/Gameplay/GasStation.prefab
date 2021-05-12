@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89abd66748af25345829e3589ca6d856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 6
   gasToAddPerSecond: 5
 --- !u!135 &8226090756950156790
 SphereCollider:

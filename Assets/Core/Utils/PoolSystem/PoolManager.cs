@@ -22,7 +22,7 @@ namespace Core.Utils.Pool
 
         private static PoolManager instance;
 
-        private readonly Dictionary<int, Stack<PoolObject>> pools = new Dictionary<int, Stack<PoolObject>>();
+        private readonly Dictionary<uint, Stack<PoolObject>> pools = new Dictionary<uint, Stack<PoolObject>>();
 
         public void Release(PoolObject instancedObject)
         {

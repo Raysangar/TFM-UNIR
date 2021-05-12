@@ -4,7 +4,7 @@ namespace Core.Utils.Pool
 {
     public class PoolObject : MonoBehaviour
     {
-        public int ID => id;
-        [SerializeField] int id;
+        public uint ID => id;
+        [SerializeField, PoolObjectIdNameProperty] uint id;
     }
 }
