@@ -4063,13 +4063,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5819840000308249836}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.47818947, y: 0.28367007, z: -0.041880954}
+  m_LocalRotation: {x: 0.66196024, y: 0.25507736, z: 0.2850917, w: 0.64456713}
+  m_LocalPosition: {x: 0.041052, y: -0.09649169, z: 0.012821017}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 7399195718855293276}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 6041941327242566664}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 45.066, y: 90.528, z: -266.84}
 --- !u!33 &8617448029458452080
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4270,6 +4270,7 @@ Transform:
   - {fileID: 5433632975424801432}
   - {fileID: 5973398728134274213}
   - {fileID: 5719590303725109374}
+  - {fileID: 7634977241361061919}
   m_Father: {fileID: 176574942742163521}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4721,8 +4722,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7399195718855293276}
   - component: {fileID: 3481024784803308326}
-  - component: {fileID: 7000142142740405938}
-  - component: {fileID: 7000142142740405937}
   m_Layer: 0
   m_Name: Matty_hero
   m_TagString: Untagged
@@ -4742,7 +4741,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2698052864822530204}
-  - {fileID: 7634977241361061919}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4765,36 +4763,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!54 &7000142142740405938
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7918711198059963366}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!136 &7000142142740405937
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7918711198059963366}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.28
-  m_Height: 1.44
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.72, z: 0}
 --- !u!1 &7935718671240553912
 GameObject:
   m_ObjectHideFlags: 0

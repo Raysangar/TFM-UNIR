@@ -8,6 +8,11 @@ namespace Game.Gameplay.Units
     {
         public System.Action OnDeath;
 
+        [SerializeField] Animator animator;
+
+        private readonly int WalkAnimationId = Animator.StringToHash("walking");
+        private readonly int ShootAnimationId = Animator.StringToHash("shooting");
+
         private Camera mainCamera;
         private PlayerInput playerInput;
         private Vector3? mousePosition;
@@ -37,6 +42,7 @@ namespace Game.Gameplay.Units
         {
             Vector2 input = context.ReadValue<Vector2>();
             Movement.SetMovement(new Vector3(input.x, 0, input.y));
+            animator.SetBool(WalkAnimationId, input.x != 0 || input.y != 0);
         }
 
         public void Look(InputAction.CallbackContext context)
@@ -55,9 +61,15 @@ namespace Game.Gameplay.Units
         public void Shoot(InputAction.CallbackContext context)
         {
             if (context.started)
+            {
                 Weapon.StartShooting();
+                animator.SetBool(ShootAnimationId, true);
+            }
             else if (context.canceled)
+            {
                 Weapon.StopShooting();
+                animator.SetBool(ShootAnimationId, false);
+            }
         }
 
         public override void UpdateBehaviour(float deltaTime)

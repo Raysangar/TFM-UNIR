@@ -15,6 +15,6 @@ MonoBehaviour:
   Speed: 5
   MaxLife: 2
   WeaponSettings: {fileID: 11400000, guid: 080efc5770a7edb4892e5a2f3c382875, type: 2}
-  AmmoWeakness: 1
+  AmmoWeakness: 3
   DistanceToPlayerToStartFollowing: 10
   DistanceToPlayerToStartShooting: 5
