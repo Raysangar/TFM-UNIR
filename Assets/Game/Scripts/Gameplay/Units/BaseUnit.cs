@@ -22,8 +22,9 @@ namespace Game.Gameplay.Units
             Life = new Life(this, settings.MaxLife, settings.AmmoWeakness);
             enabledComponents.Add(Life);
 
-            Movement = new Movement(this, settings.Speed);
+            Movement = new Movement(this, settings.Speed, settings.SpeedWhileShooting, Weapon);
             enabledComponents.Add(Movement);
         }
+
     }
 }

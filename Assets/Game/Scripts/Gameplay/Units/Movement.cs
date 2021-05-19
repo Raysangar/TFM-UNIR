@@ -7,15 +7,21 @@ namespace Game.Gameplay.Units
     {
         public Vector3 Position => cachedTransform.position;
 
-        private readonly float speed;
+        public float CurrentSpeed => weapon.IsShooting ? speedWhileShooting : usualSpeed;
+
+        private readonly float usualSpeed;
+        private readonly float speedWhileShooting;
+        private readonly WeaponsSystem.Weapon weapon;
 
         private Transform cachedTransform;
         private Vector3 currentMovement;
         private Vector3 currentTarget;
 
-        public Movement(Entity entity, float speed) : base(entity)
+        public Movement(Entity entity, float usualSpeed, float speedWhileShooting, WeaponsSystem.Weapon weapon) : base(entity)
         {
-            this.speed = speed;
+            this.usualSpeed = usualSpeed;
+            this.speedWhileShooting = speedWhileShooting;
+            this.weapon = weapon;
             currentMovement = Vector3.zero;
             currentTarget = Vector3.forward;
             cachedTransform = entity.transform;
@@ -23,7 +29,7 @@ namespace Game.Gameplay.Units
 
         public void SetMovement(Vector3 movement)
         {
-            currentMovement = movement * speed;
+            currentMovement = movement;
         }
 
         public void SetLookTarget(Vector3 target)
@@ -44,7 +50,7 @@ namespace Game.Gameplay.Units
 
         private void UpdateMovement(float deltaTime)
         {
-            cachedTransform.Translate(currentMovement * deltaTime, Space.World);
+            cachedTransform.Translate(currentMovement * CurrentSpeed * deltaTime, Space.World);
         }
 
         private void UpdateAim()

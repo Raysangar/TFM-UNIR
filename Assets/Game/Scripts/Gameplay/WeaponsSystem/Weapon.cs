@@ -11,6 +11,7 @@ namespace Game.Gameplay.WeaponsSystem
 
         public int CurrentGasInTank { get; private set; }
         public int EquippedAmmoIndex { get; private set; }
+        public bool IsShooting { get; private set; }
 
         public int TankSize => settings.InfiniteTankSize ? int.MaxValue : settings.TankSize;
         public int ClipSize => settings.InfiniteAmmo ? int.MaxValue : settings.ClipSize;
@@ -28,7 +29,6 @@ namespace Game.Gameplay.WeaponsSystem
         private WeaponSettings settings;
         private int[] clipsPerAmmo;
         private float timeSinceLastProjectile;
-        private bool isShooting;
 
         public WeaponSettings.AmmoSettings GetAmmoSettings(int ammoIndex) => settings.Ammo[ammoIndex];
         public int GetAmmoLeft(int ammoIndex) => clipsPerAmmo[ammoIndex];
@@ -50,12 +50,12 @@ namespace Game.Gameplay.WeaponsSystem
 
         public void StartShooting()
         {
-            isShooting = true;
+            IsShooting = true;
         }
 
         public void StopShooting()
         {
-            isShooting = false;
+            IsShooting = false;
         }
 
         public void SetEquippedAmmo(int ammoIndex)
@@ -81,7 +81,7 @@ namespace Game.Gameplay.WeaponsSystem
             if (timeSinceLastProjectile < settings.ProjectilePeriod)
                 timeSinceLastProjectile += deltaTime;
 
-            if (isShooting && timeSinceLastProjectile >= settings.ProjectilePeriod)
+            if (IsShooting && timeSinceLastProjectile >= settings.ProjectilePeriod)
             {
                 timeSinceLastProjectile -= settings.ProjectilePeriod;
                 TryShootProjectile();

@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: PlayerSettings
   m_EditorClassIdentifier: 
   Speed: 10
+  SpeedWhileShooting: 5
   MaxLife: 10
   WeaponSettings: {fileID: 11400000, guid: 495e095e6ccece045852bd27cf6f5c46, type: 2}
+  AmmoWeakness: 0

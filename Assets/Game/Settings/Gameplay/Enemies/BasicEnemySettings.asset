@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BasicEnemySettings
   m_EditorClassIdentifier: 
   Speed: 5
+  SpeedWhileShooting: 3
   MaxLife: 2
   WeaponSettings: {fileID: 11400000, guid: 080efc5770a7edb4892e5a2f3c382875, type: 2}
   AmmoWeakness: 3
