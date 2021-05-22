@@ -10,6 +10,8 @@
     "com.unity.localization": "0.11.0-preview",
     "com.unity.memoryprofiler": "0.2.9-preview.1",
     "com.unity.performance.profile-analyzer": "1.0.3",
+    "com.unity.probuilder": "4.5.0",
+    "com.unity.progrids": "3.0.3-preview.6",
     "com.unity.quicksearch": "2.0.2",
     "com.unity.render-pipelines.high-definition": "10.4.0",
     "com.unity.test-framework": "1.1.24",
