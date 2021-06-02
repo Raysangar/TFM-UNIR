@@ -2,7 +2,7 @@ namespace Game
 {
     public static class Constants
     {
-        public const float DistanceThreshold = .1f;
+        public const float DistanceThreshold = .01f;
 
         public static class Scenes
         {

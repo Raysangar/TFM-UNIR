@@ -32,7 +32,7 @@ namespace Game.Gameplay
             Player = Instantiate(playerPrefab);
             Player.OnDeath += OnPlayerDeath;
 
-            cameraController.Init(Player.transform);
+            cameraController.Init(Player);
         
             var enemies = FindObjectsOfType<Units.EnemyController>(true);
             foreach (var enemy in enemies)

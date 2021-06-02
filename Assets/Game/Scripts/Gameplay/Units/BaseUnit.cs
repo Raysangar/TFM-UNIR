@@ -15,15 +15,9 @@ namespace Game.Gameplay.Units
         protected override void Awake()
         {
             base.Awake();
-
             Weapon = new WeaponsSystem.Weapon(this, projectilePosReference, settings.WeaponSettings);
-            enabledComponents.Add(Weapon);
-
             Life = new Life(this, settings.MaxLife, settings.AmmoWeakness);
-            enabledComponents.Add(Life);
-
             Movement = new Movement(this, settings.Speed, settings.SpeedWhileShooting, Weapon);
-            enabledComponents.Add(Movement);
         }
 
     }

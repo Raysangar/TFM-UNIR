@@ -41,7 +41,7 @@ namespace Game.Gameplay.Units
         public void Move(InputAction.CallbackContext context)
         {
             Vector2 input = context.ReadValue<Vector2>();
-            Movement.SetMovement(new Vector3(input.x, 0, input.y));
+            Movement.SetMovement(new Vector3(input.x, 0, input.y).normalized);
             animator.SetBool(WalkAnimationId, input.x != 0 || input.y != 0);
         }
 
