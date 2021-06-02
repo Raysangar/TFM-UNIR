@@ -10,15 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Localization-String-Tables-Spanish (es)
+  m_Name: Localization-String-Tables-Spanish
   m_EditorClassIdentifier: 
-  m_GroupName: Localization-String-Tables-Spanish (es)
+  m_GroupName: Localization-String-Tables-Spanish
   m_Data:
     m_SerializedData: []
-  m_GUID: 889ce517f84efdf4090ae0714d7f5758
+  m_GUID: 967413e2938a1a44f8b8da0ece08f1bf
   m_SerializeEntries:
-  - m_GUID: 3402d8c3c0a5b23408267cb5dc52b579
-    m_Address: MainMenu_es
+  - m_GUID: d35bfe4d74e81dd48ad12ee3deab7ca4
+    m_Address: Common_es
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 90c49aee8d43a0f49811f2016f8c01d8
+    m_Address: Gameplay_es
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-es
@@ -28,5 +35,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 2956887fac1565a48afc2e6b337e1c27, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: b794d4aafc7a2604b92f9c4aa38cffbf, type: 2}
-    - {fileID: 11400000, guid: 0aca426d11c5cbd4c8dc115b2b22fadb, type: 2}
+    - {fileID: 11400000, guid: c1a63389a22a04643a84e980cf1cdb97, type: 2}
+    - {fileID: 11400000, guid: 8bd10d97020eecf4c9191e608bfc3bda, type: 2}

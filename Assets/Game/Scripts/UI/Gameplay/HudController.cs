@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using Game.Gameplay.Units;
 using Core.Utils;
 
@@ -8,16 +9,19 @@ namespace Game.UI
     {
         [SerializeField] RectTransform lifeBar;
         [SerializeField] RectTransform gasBar;
-        [SerializeField] RectTransform ammoBar;
+        [SerializeField] Image ammoBar;
 
         private PlayerController player;
+        private RectTransform cachedAmmoBarTransform;
 
         public void Init(PlayerController player)
         {
             this.player = player;
+            cachedAmmoBarTransform = ammoBar.rectTransform;
+            ammoBar.color = player.Weapon.EquippedAmmoSettings.Color;
             lifeBar.SetLocalScaleX(1);
             gasBar.SetLocalScaleX(1);
-            ammoBar.SetLocalScaleX(1);
+            cachedAmmoBarTransform.SetLocalScaleX(1);
             player.Life.OnChanged += OnLifeChanged;
             player.Weapon.OnGasChanged += OnGasChanged;
             player.Weapon.OnAmmoChanged += OnAmmoChanged;
@@ -35,7 +39,8 @@ namespace Game.UI
 
         private void OnAmmoChanged()
         {
-            ammoBar.SetLocalScaleX((float)player.Weapon.EquippedAmmo / player.Weapon.ClipSize);
+            cachedAmmoBarTransform.SetLocalScaleX((float)player.Weapon.EquippedAmmoLeft / player.Weapon.ClipSize);
+            ammoBar.color = player.Weapon.EquippedAmmoSettings.Color;
         }
     }
 }

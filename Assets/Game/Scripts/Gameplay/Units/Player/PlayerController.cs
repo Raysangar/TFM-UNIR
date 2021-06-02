@@ -72,6 +72,21 @@ namespace Game.Gameplay.Units
             }
         }
 
+        public void AmmoShortcut1(InputAction.CallbackContext _)
+        {
+            Weapon.SetEquippedAmmo(0);
+        }
+
+        public void AmmoShortcut2(InputAction.CallbackContext _)
+        {
+            Weapon.SetEquippedAmmo(1);
+        }
+
+        public void AmmoShortcut3(InputAction.CallbackContext _)
+        {
+            Weapon.SetEquippedAmmo(2);
+        }
+
         public override void UpdateBehaviour(float deltaTime)
         {
             if (mousePosition.HasValue)

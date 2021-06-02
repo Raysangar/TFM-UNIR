@@ -189,6 +189,54 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: b1233428-5882-4e80-890a-21b8baf3497b
     m_ActionName: Player/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4172735212381905496}
+        m_TargetAssemblyTypeName: Game.Gameplay.Units.PlayerController, Assembly-CSharp
+        m_MethodName: AmmoShortcut1
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: dc3aeee5-078c-40a9-bc32-59f4277ee227
+    m_ActionName: Player/AmmoShortcut1[/Keyboard/1]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4172735212381905496}
+        m_TargetAssemblyTypeName: Game.Gameplay.Units.PlayerController, Assembly-CSharp
+        m_MethodName: AmmoShortcut2
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 44af9d76-bfa3-4473-a074-aec5b3ec8d63
+    m_ActionName: Player/AmmoShortcut2[/Keyboard/2]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4172735212381905496}
+        m_TargetAssemblyTypeName: Game.Gameplay.Units.PlayerController, Assembly-CSharp
+        m_MethodName: AmmoShortcut3
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c8d91455-a02d-45e6-b06c-476d70551cc9
+    m_ActionName: Player/AmmoShortcut3[/Keyboard/3]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

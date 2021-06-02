@@ -10,23 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Localization-String-Tables-Spanish (es)
+  m_Name: Localization-String-Tables-English
   m_EditorClassIdentifier: 
-  m_GroupName: Localization-String-Tables-Spanish (es)
+  m_GroupName: Localization-String-Tables-English
   m_Data:
     m_SerializedData: []
-  m_GUID: 889ce517f84efdf4090ae0714d7f5758
+  m_GUID: 48a86712859e666418fcd8d7f8f5e433
   m_SerializeEntries:
-  - m_GUID: 3402d8c3c0a5b23408267cb5dc52b579
-    m_Address: MainMenu_es
+  - m_GUID: f1415fecb09a69943a75d9d685630e65
+    m_Address: Common_en
     m_ReadOnly: 1
     m_SerializedLabels:
-    - Locale-es
+    - Locale-en
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: a4171433f5b3a18478935979093d0e51
+    m_Address: Gameplay_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 2956887fac1565a48afc2e6b337e1c27, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: b794d4aafc7a2604b92f9c4aa38cffbf, type: 2}
-    - {fileID: 11400000, guid: 0aca426d11c5cbd4c8dc115b2b22fadb, type: 2}
+    - {fileID: 11400000, guid: 7f1619df07eb1c243945bbc9a601c5cd, type: 2}
+    - {fileID: 11400000, guid: 44e23b608d13ef8499f9c7528cad926e, type: 2}

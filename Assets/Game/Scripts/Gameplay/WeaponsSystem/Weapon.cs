@@ -17,13 +17,13 @@ namespace Game.Gameplay.WeaponsSystem
         public int ClipSize => settings.InfiniteAmmo ? int.MaxValue : settings.ClipSize;
         public int AmmoTypesCount => clipsPerAmmo.Length;
 
-        public int EquippedAmmo
+        public int EquippedAmmoLeft
         {
             get => clipsPerAmmo [EquippedAmmoIndex];
             set => clipsPerAmmo[EquippedAmmoIndex] = value;
         }
 
-        private WeaponSettings.AmmoSettings EquippedAmmoSettings => GetAmmoSettings(EquippedAmmoIndex);
+        public WeaponSettings.AmmoSettings EquippedAmmoSettings => GetAmmoSettings(EquippedAmmoIndex);
 
         private Transform projectilePosReference;
         private WeaponSettings settings;
@@ -90,9 +90,9 @@ namespace Game.Gameplay.WeaponsSystem
 
         private void TryShootProjectile()
         {
-            if (CurrentGasInTank > 0 && EquippedAmmo > 0)
+            if (CurrentGasInTank > 0 && EquippedAmmoLeft > 0)
             {
-                --EquippedAmmo;
+                --EquippedAmmoLeft;
                 --CurrentGasInTank;
                 var projectile = PoolManager.Instance.GetInstanceFor(EquippedAmmoSettings.ProjectilePrefab);
                 var projectileSettings = settings.GetCurrentProjectileSettings(CurrentGasInTank, TankSize);
