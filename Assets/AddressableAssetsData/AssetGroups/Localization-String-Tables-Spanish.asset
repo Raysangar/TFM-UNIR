@@ -16,21 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 967413e2938a1a44f8b8da0ece08f1bf
-  m_SerializeEntries:
-  - m_GUID: d35bfe4d74e81dd48ad12ee3deab7ca4
-    m_Address: Common_es
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-es
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
-  - m_GUID: 90c49aee8d43a0f49811f2016f8c01d8
-    m_Address: Gameplay_es
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-es
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
+  m_SerializeEntries: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 2956887fac1565a48afc2e6b337e1c27, type: 2}
   m_SchemaSet:
