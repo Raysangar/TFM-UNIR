@@ -8,14 +8,12 @@ namespace Game.Gameplay.Units
     {
         public System.Action OnDeath;
 
-        [SerializeField] Animator animator;
-
-        private readonly int WalkAnimationId = Animator.StringToHash("walking");
-        private readonly int ShootAnimationId = Animator.StringToHash("shooting");
-
         private Camera mainCamera;
         private PlayerInput playerInput;
         private Vector3? mousePosition;
+
+        private readonly int DirectionXAnimationId = Animator.StringToHash("DirectionX");
+        private readonly int DirectionZAnimationId = Animator.StringToHash("DirectionZ");
 
         public override void OnGameplayPaused()
         {
@@ -41,21 +39,35 @@ namespace Game.Gameplay.Units
         public void Move(InputAction.CallbackContext context)
         {
             Vector2 input = context.ReadValue<Vector2>();
-            Movement.SetMovement(new Vector3(input.x, 0, input.y).normalized);
+            Vector3 direction = new Vector3(input.x, 0, input.y).normalized;
+            Movement.SetMovement(direction);
+            if (!Weapon.IsShooting)
+            {
+                Movement.SetRotation(Quaternion.LookRotation(direction));
+                RemoveMoveTarget();
+            }
             animator.SetBool(WalkAnimationId, input.x != 0 || input.y != 0);
         }
 
         public void Look(InputAction.CallbackContext context)
         {
-            Movement.SetRotation(context.ReadValue<Quaternion>());
-            mousePosition = null;
+            if (Weapon.IsShooting)
+                Movement.SetRotation(context.ReadValue<Quaternion>());
+            RemoveMoveTarget();
         }
 
         public void LookAt(InputAction.CallbackContext context)
         {
-            Vector3 input = context.ReadValue<Vector2>();
-            input.z = Vector3.Distance(mainCamera.transform.position, Movement.Position);
-            mousePosition = input;
+            if (Weapon.IsShooting)
+            {
+                Vector3 input = context.ReadValue<Vector2>();
+                input.z = Vector3.Distance(mainCamera.transform.position, Movement.Position);
+                mousePosition = input;
+            }
+            else
+            {
+                RemoveMoveTarget();
+            }
         }
 
         public void Shoot(InputAction.CallbackContext context)
@@ -91,7 +103,24 @@ namespace Game.Gameplay.Units
         {
             if (mousePosition.HasValue)
                 Movement.SetLookTarget(mainCamera.ScreenToWorldPoint(mousePosition.Value));
+            if (Weapon.IsShooting)
+            {
+                if (Movement.CurrentDirection.x > 0 || Movement.CurrentDirection.y > 0)
+                {
+                    float radianBetweenDirectionAndTarget = Vector3.Angle(Movement.CurrentDirection, transform.forward) * Mathf.Deg2Rad;
+                    float blendX = Mathf.Cos(radianBetweenDirectionAndTarget);
+                    float blendY = Mathf.Sin(radianBetweenDirectionAndTarget);
+                    animator.SetFloat(DirectionXAnimationId, blendX);
+                    animator.SetFloat(DirectionZAnimationId, blendY);
+                }
+            }
             base.UpdateBehaviour(deltaTime);
+        }
+
+        private void RemoveMoveTarget()
+        {
+            mousePosition = null;
+            Movement.SetLookTarget(null);
         }
 
         private void OnDeathCallback()

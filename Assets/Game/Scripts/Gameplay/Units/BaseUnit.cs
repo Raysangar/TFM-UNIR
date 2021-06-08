@@ -9,8 +9,12 @@ namespace Game.Gameplay.Units
         public Life Life { get; private set; }
         public Movement Movement { get; private set; }
 
+        [SerializeField] protected Animator animator;
         [SerializeField] protected Transform projectilePosReference;
         [SerializeField] protected T settings;
+
+        protected readonly int WalkAnimationId = Animator.StringToHash("walking");
+        protected readonly int ShootAnimationId = Animator.StringToHash("shooting");
 
         protected override void Awake()
         {

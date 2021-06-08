@@ -18,9 +18,9 @@ namespace Game.Gameplay.Units
             finiteStateMachine = new FiniteStateMachineComponent(this, false,
                 new FiniteState[]
                 {
-                    new FiniteState(null, null, PatrolBehaviour, new System.Func<bool>[] {null, ShouldFollowPlayer, ShouldStartShootingPlayer}),
-                    new FiniteState(null, Stop, FollowPlayerBehaviour, new System.Func<bool>[] {null, null, ShouldStartShootingPlayer}),
-                    new FiniteState(Weapon.StartShooting, Weapon.StopShooting, AimPlayerBehaviour, new System.Func<bool>[] {null, ShouldFollowPlayer, null})
+                    new FiniteState(OnPatrolStarted, null, PatrolBehaviour, new System.Func<bool>[] {null, ShouldFollowPlayer, ShouldStartShootingPlayer}),
+                    new FiniteState(OnStartFollowingPlayer, Stop, FollowPlayerBehaviour, new System.Func<bool>[] {null, null, ShouldStartShootingPlayer}),
+                    new FiniteState(OnStartShooting, OnStopShooting, AimPlayerBehaviour, new System.Func<bool>[] {null, ShouldFollowPlayer, null})
                 }
             );
             disabledComponents.Add(finiteStateMachine);
@@ -32,6 +32,11 @@ namespace Game.Gameplay.Units
             this.patrolNodes = patrolNodes;
             finiteStateMachine.Enabled = true;
             finiteStateMachine.Reset();
+        }
+
+        private void OnPatrolStarted()
+        {
+            animator.SetBool(WalkAnimationId, patrolNodes.Length > 0);
         }
 
         private void PatrolBehaviour(float deltaTime)
@@ -58,9 +63,21 @@ namespace Game.Gameplay.Units
             return distanceToPlayer <= settings.DistanceToPlayerToStartShooting;
         }
 
+        private void OnStartShooting()
+        {
+            Weapon.StartShooting();
+            animator.SetBool(ShootAnimationId, true);
+        }
+
         private void AimPlayerBehaviour(float deltaTime)
         {
             Movement.SetLookTarget(player.Movement.Position);
+        }
+
+        private void OnStopShooting()
+        {
+            Weapon.StopShooting();
+            animator.SetBool(ShootAnimationId, false);
         }
 
         private void FollowPlayerBehaviour(float deltaTime)
@@ -68,9 +85,15 @@ namespace Game.Gameplay.Units
             GoTo(player.Movement.Position);
         }
 
+        private void OnStartFollowingPlayer()
+        {
+            animator.SetBool(WalkAnimationId, true);
+        }
+
         private void Stop()
         {
             Movement.SetMovement(Vector3.zero);
+            animator.SetBool(WalkAnimationId, false);
         }
 
         private void OnDeathCallback()

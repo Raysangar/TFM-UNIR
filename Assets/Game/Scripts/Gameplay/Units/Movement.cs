@@ -6,6 +6,7 @@ namespace Game.Gameplay.Units
     public class Movement : EntityComponent
     {
         public Vector3 Position => cachedTransform.position;
+        public Vector3 CurrentDirection { get; private set; }
 
         public float CurrentSpeed => weapon.IsShooting ? speedWhileShooting : usualSpeed;
 
@@ -14,25 +15,24 @@ namespace Game.Gameplay.Units
         private readonly WeaponsSystem.Weapon weapon;
 
         private Transform cachedTransform;
-        private Vector3 currentMovement;
-        private Vector3 currentTarget;
+        private Vector3? currentTarget;
 
         public Movement(Entity entity, float usualSpeed, float speedWhileShooting, WeaponsSystem.Weapon weapon) : base(entity)
         {
             this.usualSpeed = usualSpeed;
             this.speedWhileShooting = speedWhileShooting;
             this.weapon = weapon;
-            currentMovement = Vector3.zero;
-            currentTarget = Vector3.forward;
+            CurrentDirection = Vector3.zero;
+            currentTarget = null;
             cachedTransform = entity.transform;
         }
 
         public void SetMovement(Vector3 movement)
         {
-            currentMovement = movement;
+            CurrentDirection = movement;
         }
 
-        public void SetLookTarget(Vector3 target)
+        public void SetLookTarget(Vector3? target)
         {
             currentTarget = target;
         }
@@ -50,14 +50,17 @@ namespace Game.Gameplay.Units
 
         private void UpdateMovement(float deltaTime)
         {
-            cachedTransform.Translate(currentMovement * CurrentSpeed * deltaTime, Space.World);
+            cachedTransform.Translate(CurrentDirection * CurrentSpeed * deltaTime, Space.World);
         }
 
         private void UpdateAim()
         {
-            Vector3 lookPosition = currentTarget - cachedTransform.position;
-            lookPosition.y = 0;
-            cachedTransform.localRotation = Quaternion.LookRotation(lookPosition);
+            if (currentTarget.HasValue)
+            {
+                Vector3 lookPosition = currentTarget.Value - cachedTransform.position;
+                lookPosition.y = 0;
+                cachedTransform.localRotation = Quaternion.LookRotation(lookPosition);
+            }
         }
     }
 }
