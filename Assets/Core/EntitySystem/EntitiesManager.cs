@@ -7,6 +7,7 @@ namespace Core.EntitySystem
     {
         private readonly List<Entity> entities;
         private readonly List<Entity> entitiesToRemove;
+        private readonly List<Entity> entitiesToAdd;
 
         public bool Enabled { get; private set; }
 
@@ -34,6 +35,7 @@ namespace Core.EntitySystem
         {
             entities = new List<Entity>();
             entitiesToRemove = new List<Entity>();
+            entitiesToAdd = new List<Entity>();
 
             Entity.OnSpawnedToScene += OnEntitySpawnedInScene;
             Entity.OnRemovedFromScene += OnEntityRemovedFromScene;
@@ -45,6 +47,10 @@ namespace Core.EntitySystem
                 entities.Remove(entity);
             entitiesToRemove.Clear();
 
+            foreach (var entity in entitiesToAdd)
+                entities.Add(entity);
+            entitiesToAdd.Clear();
+
             if (Enabled)
             {
                 foreach (var entities in entities)
@@ -54,7 +60,7 @@ namespace Core.EntitySystem
 
         private void OnEntitySpawnedInScene(Entity entity)
         {
-            entities.Add(entity);
+            entitiesToAdd.Add(entity);
         }
 
         private void OnEntityRemovedFromScene(Entity entity)

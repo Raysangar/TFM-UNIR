@@ -11,6 +11,8 @@ namespace Core.EntitySystem
         protected List<EntityComponent> enabledComponents;
         protected List<EntityComponent> disabledComponents;
 
+        private bool initialized = false;
+
         protected virtual void Awake()
         {
             enabledComponents = new List<EntityComponent>();
@@ -19,7 +21,14 @@ namespace Core.EntitySystem
 
         protected virtual void Start()
         {
+            initialized = true;
             OnSpawnedToScene(this);
+        }
+
+        protected virtual void OnEnable()
+        {
+            if (initialized)
+                OnSpawnedToScene(this);
         }
 
         public void Enable(EntityComponent component)
