@@ -10,6 +10,8 @@ namespace Game.Gameplay.Units
         private Transform[] patrolNodes;
         private int targetPatrolNode;
 
+        private bool ShouldMoveInPatrol => patrolNodes != null && patrolNodes.Length > 1;
+
         protected override void Awake()
         {
             base.Awake();
@@ -26,7 +28,7 @@ namespace Game.Gameplay.Units
             disabledComponents.Add(finiteStateMachine);
         }
 
-        public void InitBehaviour(PlayerController player, Transform[] patrolNodes)
+        public void InitBehaviour(PlayerController player, Transform[] patrolNodes = null)
         {
             this.player = player;
             this.patrolNodes = patrolNodes;
@@ -36,12 +38,12 @@ namespace Game.Gameplay.Units
 
         private void OnPatrolStarted()
         {
-            animator.SetBool(WalkAnimationId, patrolNodes.Length > 0);
+            animator.SetBool(WalkAnimationId, ShouldMoveInPatrol);
         }
 
         private void PatrolBehaviour(float deltaTime)
         {
-            if (patrolNodes.Length > 0)
+            if (ShouldMoveInPatrol)
             {
                 if (Vector3.Distance(Movement.Position, patrolNodes[targetPatrolNode].position) < Constants.DistanceThreshold)
                     targetPatrolNode = ++targetPatrolNode % patrolNodes.Length;
