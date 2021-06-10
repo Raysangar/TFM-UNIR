@@ -1741,7 +1741,7 @@ GameObject:
   - component: {fileID: 7535406534186578506}
   - component: {fileID: 4499949820150343728}
   m_Layer: 0
-  m_Name: Alien
+  m_Name: AlienMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -29,8 +29,9 @@ namespace Game.Gameplay.WeaponsSystem
                 cachedTransform = transform;
             cachedTransform.position = startingTransform.position;
             cachedTransform.rotation = startingTransform.rotation;
-            
+
             movement.z = settings.Speed;
+            movement.y = 0;
             durationLeft = DURATION_IN_SECONDS;
             distanceTraveled = 0;
         }
@@ -78,7 +79,7 @@ namespace Game.Gameplay.WeaponsSystem
                     break;
 
             }
-            PoolManager.Instance.Release(this);
+            RemoveFromScene();
         }
 
     }

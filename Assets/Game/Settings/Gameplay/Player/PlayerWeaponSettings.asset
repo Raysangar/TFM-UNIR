@@ -32,6 +32,6 @@ MonoBehaviour:
     applyUntilTankLeftPercentage: 100
     Settings:
       Speed: 10
-      StartFallingAfterDistance: 100
+      StartFallingAfterDistance: 1000
       FallSpeed: 10
       Damage: 5
