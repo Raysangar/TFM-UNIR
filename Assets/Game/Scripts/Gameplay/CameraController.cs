@@ -9,10 +9,13 @@ namespace Game.Gameplay
         [SerializeField] Vector3 distanceFromPlayer;
         [SerializeField] AnimationCurve reachPlayerSpeedCurve;
         [SerializeField] float reachPlayerSpeedDuration;
+        [SerializeField] AnimationCurve reduceDistanceSpeedCurve;
+        [SerializeField] float startingDistanceToReduceSpeed;
 
         private PlayerController player;
         private Transform cachedTransform;
         private float timeFollowingPlayer;
+        private float previousDistance;
 
         public void Init(PlayerController player)
         {
@@ -31,16 +34,28 @@ namespace Game.Gameplay
         {
             Vector3 currentPosition = cachedTransform.position;
             Vector3 targetPosition = player.Movement.Position + distanceFromPlayer;
-            if ((targetPosition - currentPosition).sqrMagnitude < Constants.DistanceThreshold)
+            float currentDistance = (targetPosition - currentPosition).sqrMagnitude;
+            if (currentDistance < Constants.DistanceThreshold)
             {
                 timeFollowingPlayer = 0;
                 cachedTransform.position = targetPosition;
+                previousDistance = 0;
             }
             else
             {
-                timeFollowingPlayer += deltaTime;
-                float speed = reachPlayerSpeedCurve.Evaluate(timeFollowingPlayer / reachPlayerSpeedDuration) * player.Movement.CurrentSpeed;
-                cachedTransform.Translate((targetPosition - currentPosition).normalized * deltaTime * speed, Space.World);
+                if (currentDistance < previousDistance && currentDistance <= startingDistanceToReduceSpeed)
+                {
+                    float speed = reachPlayerSpeedCurve.Evaluate(timeFollowingPlayer / reachPlayerSpeedDuration) * player.Movement.CurrentSpeed;
+                    speed *= reduceDistanceSpeedCurve.Evaluate((startingDistanceToReduceSpeed - currentDistance) / startingDistanceToReduceSpeed);
+                    cachedTransform.Translate((targetPosition - currentPosition).normalized * deltaTime * speed, Space.World);
+                }
+                else
+                {
+                    timeFollowingPlayer += deltaTime;
+                    float speed = reachPlayerSpeedCurve.Evaluate(timeFollowingPlayer / reachPlayerSpeedDuration) * player.Movement.CurrentSpeed;
+                    cachedTransform.Translate((targetPosition - currentPosition).normalized * deltaTime * speed, Space.World);
+                }
+                previousDistance = currentDistance;
             }
             base.UpdateBehaviour(deltaTime);
         }
