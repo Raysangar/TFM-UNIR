@@ -7,7 +7,7 @@ AvatarMask:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: AlienTopAvatarMask
-  m_Mask: 01000000010000000100000000000000000000000100000001000000010000000100000001000000010000000100000001000000
+  m_Mask: 00000000010000000100000000000000000000000100000001000000010000000100000000000000000000000100000001000000
   m_Elements:
   - m_Path: 
     m_Weight: 1
@@ -28,27 +28,27 @@ AvatarMask:
   - m_Path: Grp_Joins/Hips
     m_Weight: 1
   - m_Path: Grp_Joins/Hips/Ctrl_Legs
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Grp_Joins/Hips/Ctrl_Legs/Left_Up_Leg
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Grp_Joins/Hips/Ctrl_Legs/Left_Up_Leg/Left_knee
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Grp_Joins/Hips/Ctrl_Legs/Left_Up_Leg/Left_knee/Left_Ankle
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Grp_Joins/Hips/Ctrl_Legs/Left_Up_Leg/Left_knee/Left_Ankle/Left_Foot
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Grp_Joins/Hips/Ctrl_Legs/Left_Up_Leg/Left_knee/Left_Ankle/Left_Foot/Left_Toe
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Grp_Joins/Hips/Ctrl_Legs/Right_Up_Leg
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Grp_Joins/Hips/Ctrl_Legs/Right_Up_Leg/Right_knee
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Grp_Joins/Hips/Ctrl_Legs/Right_Up_Leg/Right_knee/Right_Ankle
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Grp_Joins/Hips/Ctrl_Legs/Right_Up_Leg/Right_knee/Right_Ankle/Right_Foot
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Grp_Joins/Hips/Ctrl_Legs/Right_Up_Leg/Right_knee/Right_Ankle/Right_Foot/Right_Toe
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Grp_Joins/Hips/Spine_01
     m_Weight: 1
   - m_Path: Grp_Joins/Hips/Spine_01/Spine_02
