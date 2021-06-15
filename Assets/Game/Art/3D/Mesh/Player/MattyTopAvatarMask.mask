@@ -11,242 +11,240 @@ AvatarMask:
   m_Elements:
   - m_Path: 
     m_Weight: 1
-  - m_Path: Matty
+  - m_Path: Grp_Joins
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins
+  - m_Path: Grp_Joins/Hips
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips
+  - m_Path: Grp_Joins/Hips/BaseLegs
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/BaseLegs
+  - m_Path: Grp_Joins/Hips/BaseLegs/Left_Up_Leg
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/BaseLegs/Left_Up_Leg
+  - m_Path: Grp_Joins/Hips/BaseLegs/Left_Up_Leg/Left_Knee
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/BaseLegs/Left_Up_Leg/Left_Knee
+  - m_Path: Grp_Joins/Hips/BaseLegs/Left_Up_Leg/Left_Knee/Left_Ankle
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/BaseLegs/Left_Up_Leg/Left_Knee/Left_Ankle
+  - m_Path: Grp_Joins/Hips/BaseLegs/Left_Up_Leg/Left_Knee/Left_Ankle/Left_Foot
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/BaseLegs/Left_Up_Leg/Left_Knee/Left_Ankle/Left_Foot
+  - m_Path: Grp_Joins/Hips/BaseLegs/Left_Up_Leg/Left_Knee/Left_Ankle/Left_Foot/Left_Toe
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/BaseLegs/Left_Up_Leg/Left_Knee/Left_Ankle/Left_Foot/Left_Toe
+  - m_Path: Grp_Joins/Hips/BaseLegs/Right_Up_Leg
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/BaseLegs/Right_Up_Leg
+  - m_Path: Grp_Joins/Hips/BaseLegs/Right_Up_Leg/Right_Knee
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/BaseLegs/Right_Up_Leg/Right_Knee
+  - m_Path: Grp_Joins/Hips/BaseLegs/Right_Up_Leg/Right_Knee/Right_Ankle
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/BaseLegs/Right_Up_Leg/Right_Knee/Right_Ankle
+  - m_Path: Grp_Joins/Hips/BaseLegs/Right_Up_Leg/Right_Knee/Right_Ankle/Right_Foot
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/BaseLegs/Right_Up_Leg/Right_Knee/Right_Ankle/Right_Foot
+  - m_Path: Grp_Joins/Hips/BaseLegs/Right_Up_Leg/Right_Knee/Right_Ankle/Right_Foot/Right_Toe
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/BaseLegs/Right_Up_Leg/Right_Knee/Right_Ankle/Right_Foot/Right_Toe
+  - m_Path: Grp_Joins/Hips/Belt
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01
+  - m_Path: Grp_Joins/Hips/Belt/Belt_Accesories_GEO
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02
+  - m_Path: Grp_Joins/Hips/Belt/Belt_GEO
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03
+  - m_Path: Grp_Joins/Hips/Spine_01
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Chest
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Chest/joint41
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Chest/joint41/joint42
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Chest
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Chest/joint41/joint42/joint43
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Chest/joint41
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Chest/joint41/joint42/joint43/joint44
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Chest/joint41/joint42
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Chest/joint41/joint42/joint43
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Chest/joint41/joint42/joint43/joint44
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_01
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_01/Left_Index
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_01/Left_Index/joint34
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_01
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_01/Left_Index/joint34/joint35
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_01/Left_Index
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_01/Left_Index/joint34/joint35/joint36
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_01/Left_Index/joint34
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_01/Left_Middle
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_01/Left_Index/joint34/joint35
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_01/Left_Middle/joint30
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_01/Left_Index/joint34/joint35/joint36
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_01/Left_Middle/joint30/joint31
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_01/Left_Middle
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_01/Left_Middle/joint30/joint31/joint32
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_01/Left_Middle/joint30
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_02
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_01/Left_Middle/joint30/joint31
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_02/Left_Pinky
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_01/Left_Middle/joint30/joint31/joint32
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_02/Left_Pinky/joint22
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_02
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_02/Left_Pinky/joint22/joint23
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_02/Left_Pinky
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_02/Left_Pinky/joint22/joint23/joint24
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_02/Left_Pinky/joint22
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_02/Left_Ring
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_02/Left_Pinky/joint22/joint23
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_02/Left_Ring/joint26
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_02/Left_Pinky/joint22/joint23/joint24
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_02/Left_Ring/joint26/joint27
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_02/Left_Ring
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_02/Left_Ring/joint26/joint27/joint28
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_02/Left_Ring/joint26
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Thumb
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_02/Left_Ring/joint26/joint27
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Thumb/joint38
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Palm_02/Left_Ring/joint26/joint27/joint28
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Thumb/joint38/joint39
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Thumb
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Thumb/joint38/joint39/joint40
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Thumb/joint38
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Thumb/joint38/joint39
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Left_Shoulder/Left_Arm/Left_Elbow/Left_Wrist/Left_Thumb/joint38/joint39/joint40
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_01
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_01/Right_Index
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_01/Right_Index/joint34
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/GRP_Weapon
+    m_Weight: 1
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/GRP_Weapon/Weapon_uvs_escalaV02:Matty_gun_GEO
+    m_Weight: 1
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_01
+    m_Weight: 1
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_01/Right_Index
+    m_Weight: 1
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_01/Right_Index/joint34
       1
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_01/Right_Index/joint34
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_01/Right_Index/joint34
       1/joint35 1
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_01/Right_Index/joint34
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_01/Right_Index/joint34
       1/joint35 1/joint36 1
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_01/Right_Middle
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_01/Right_Middle
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_01/Right_Middle/joint30
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_01/Right_Middle/joint30
       1
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_01/Right_Middle/joint30
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_01/Right_Middle/joint30
       1/joint31 1
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_01/Right_Middle/joint30
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_01/Right_Middle/joint30
       1/joint31 1/joint32 1
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_02
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_02
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_02/Right_Pinky
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_02/Right_Pinky
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_02/Right_Pinky/joint22
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_02/Right_Pinky/joint22
       1
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_02/Right_Pinky/joint22
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_02/Right_Pinky/joint22
       1/joint23 1
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_02/Right_Pinky/joint22
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_02/Right_Pinky/joint22
       1/joint23 1/joint24 1
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_02/Right_Ring
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_02/Right_Ring
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_02/Right_Ring/joint26
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_02/Right_Ring/joint26
       1
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_02/Right_Ring/joint26
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_02/Right_Ring/joint26
       1/joint27 1
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_02/Right_Ring/joint26
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Palm_02/Right_Ring/joint26
       1/joint27 1/joint28 1
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Thumb
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Thumb
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Thumb/joint38
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Thumb/joint38
       1
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Thumb/joint38
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Thumb/joint38
       1/joint39 1
     m_Weight: 1
-  - m_Path: Matty/Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Thumb/joint38
+  - m_Path: Grp_Joins/Hips/Spine_01/Spine_02/Spine_03/Spine_04/Spine_05/Spine_06/Spine_07/Right_Shoulder1/Right_Arm/Right_Elbow/Right_Wrist/Right_Thumb/joint38
       1/joint39 1/joint40 1
     m_Weight: 1
-  - m_Path: Matty/Matty_Mesh
+  - m_Path: Matty_Mesh
     m_Weight: 1
-  - m_Path: Matty/Matty_Mesh/Body
+  - m_Path: Matty_Mesh/Body
     m_Weight: 1
-  - m_Path: Matty/Matty_Mesh/Body/Armor_GEO
+  - m_Path: Matty_Mesh/Body/Armor_GEO
     m_Weight: 1
-  - m_Path: Matty/Matty_Mesh/Body/Arms_Armor_GEO
+  - m_Path: Matty_Mesh/Body/Arms_Armor_GEO
     m_Weight: 1
-  - m_Path: Matty/Matty_Mesh/Body/Body_GEO
+  - m_Path: Matty_Mesh/Body/Body_GEO
     m_Weight: 1
-  - m_Path: Matty/Matty_Mesh/Body/Tanks_GEO
+  - m_Path: Matty_Mesh/Body/Tanks_GEO
     m_Weight: 1
-  - m_Path: Matty/Matty_Mesh/CtrlBelt
+  - m_Path: Matty_Mesh/Head
     m_Weight: 1
-  - m_Path: Matty/Matty_Mesh/CtrlBelt/Belt
+  - m_Path: Matty_Mesh/Head/Eyebrows_GEO
     m_Weight: 1
-  - m_Path: Matty/Matty_Mesh/CtrlBelt/Belt/Belt_Accesories_GEO
+  - m_Path: Matty_Mesh/Head/Glass_band_GEO
     m_Weight: 1
-  - m_Path: Matty/Matty_Mesh/CtrlBelt/Belt/Belt_GEO
+  - m_Path: Matty_Mesh/Head/Glass_Lenses_GEO
     m_Weight: 1
-  - m_Path: Matty/Matty_Mesh/Head
+  - m_Path: Matty_Mesh/Head/Glasses_Border_GEO
     m_Weight: 1
-  - m_Path: Matty/Matty_Mesh/Head/Eyebrows_GEO
+  - m_Path: Matty_Mesh/Head/Glasses_Square_GEO
     m_Weight: 1
-  - m_Path: Matty/Matty_Mesh/Head/Glass_band_GEO
+  - m_Path: Matty_Mesh/Head/Hair_GEO
     m_Weight: 1
-  - m_Path: Matty/Matty_Mesh/Head/Glass_Lenses_GEO
+  - m_Path: Matty_Mesh/Head/Head_GEO
     m_Weight: 1
-  - m_Path: Matty/Matty_Mesh/Head/Glasses_Border_GEO
+  - m_Path: Matty_Mesh/Head/L_eye_GEO
     m_Weight: 1
-  - m_Path: Matty/Matty_Mesh/Head/Glasses_Square_GEO
+  - m_Path: Matty_Mesh/Head/Mask_GEO
     m_Weight: 1
-  - m_Path: Matty/Matty_Mesh/Head/Hair_GEO
+  - m_Path: Matty_Mesh/Head/R_eye_GEO
     m_Weight: 1
-  - m_Path: Matty/Matty_Mesh/Head/Head_GEO
+  - m_Path: Matty_Mesh/Legs
     m_Weight: 1
-  - m_Path: Matty/Matty_Mesh/Head/L_eye_GEO
+  - m_Path: Matty_Mesh/Legs/Knees_GEO
     m_Weight: 1
-  - m_Path: Matty/Matty_Mesh/Head/Mask_GEO
+  - m_Path: Matty_Mesh/Legs/Legs_GEO
     m_Weight: 1
-  - m_Path: Matty/Matty_Mesh/Head/R_eye_GEO
+  - m_Path: Matty_Mesh/Legs/Pants_GEO
     m_Weight: 1
-  - m_Path: Matty/Matty_Mesh/Legs
+  - m_Path: Matty_Mesh/Legs/Small_Buckle_2_GEO
     m_Weight: 1
-  - m_Path: Matty/Matty_Mesh/Legs/Knees_GEO
+  - m_Path: Matty_Mesh/Legs/Small_Buckle_GEO
     m_Weight: 1
-  - m_Path: Matty/Matty_Mesh/Legs/Legs_GEO
+  - m_Path: Matty_Mesh/Shoes
     m_Weight: 1
-  - m_Path: Matty/Matty_Mesh/Legs/Pants_GEO
+  - m_Path: Matty_Mesh/Shoes/Shoe_A_GEO
     m_Weight: 1
-  - m_Path: Matty/Matty_Mesh/Legs/Small_Buckle_2_GEO
+  - m_Path: Matty_Mesh/Shoes/Shoe_B_GEO
     m_Weight: 1
-  - m_Path: Matty/Matty_Mesh/Legs/Small_Buckle_GEO
+  - m_Path: Matty_Mesh/Shoes/Shoe_C_GEO
     m_Weight: 1
-  - m_Path: Matty/Matty_Mesh/Shoes
+  - m_Path: Matty_Mesh/Shoes/Shoe_D_GEO
     m_Weight: 1
-  - m_Path: Matty/Matty_Mesh/Shoes/Shoe_A_GEO
-    m_Weight: 1
-  - m_Path: Matty/Matty_Mesh/Shoes/Shoe_B_GEO
-    m_Weight: 1
-  - m_Path: Matty/Matty_Mesh/Shoes/Shoe_C_GEO
-    m_Weight: 1
-  - m_Path: Matty/Matty_Mesh/Shoes/Shoe_D_GEO
-    m_Weight: 1
-  - m_Path: Matty/Matty_Mesh/Shoes/Sole_GEO
-    m_Weight: 1
-  - m_Path: Weapon_uvs_escalaV02:Matty_gun_GEO
+  - m_Path: Matty_Mesh/Shoes/Sole_GEO
     m_Weight: 1
