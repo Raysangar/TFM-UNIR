@@ -12,6 +12,7 @@ namespace Game.UI.Gameplay
         [SerializeField] AmmoSelectionPanelController ammoSelectionPanel;
         [SerializeField] GameOverPanelController gameOverPanel;
         [SerializeField] PausePanelController pausePanel;
+        [SerializeField] LoadingScreenController loadingScreen;
 
         private GameManager gameManager;
         private PlayerInput input;
@@ -77,8 +78,15 @@ namespace Game.UI.Gameplay
             input = GetComponent<PlayerInput>();
             gamepadMenuController = GetComponent<GamepadMenuController>();
 
+            gameManager.OnLevelAboutToLoad += OnLevelAboutToLoad;
+            gameManager.OnLevelLoaded += OnLevelLoaded;
+
             gamepadMenuController.ForceSelectionTo(null);
             gameManager.Player.OnDeath += OnPlayerDeath;
+
+            loadingScreen.Init(GainUiFocus, LooseUiFocus);
+            input.enabled = false;
+            loadingScreen.Show();
         }
 
         private void Start()
@@ -93,11 +101,24 @@ namespace Game.UI.Gameplay
 
             pausePanel.Init(gamepadMenuController);
             pausePanel.Init(GainUiFocus, LooseUiFocus);
+
+        }
+
+        private void OnLevelAboutToLoad(System.Action uiReadyToLoadLevelCallback)
+        {
+            input.enabled = false;
+            loadingScreen.Show();
+            uiReadyToLoadLevelCallback();
+        }
+
+        private void OnLevelLoaded()
+        {
+            input.enabled = true;
+            loadingScreen.Hide();
         }
 
         private void OnPlayerDeath()
         {
-            input.enabled = false;
             gameOverPanel.Show();
         }
     }

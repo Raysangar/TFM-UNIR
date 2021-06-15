@@ -6,6 +6,10 @@ namespace Game.Gameplay
 {
     public class GameManager : MonoBehaviour
     {
+        public System.Action<System.Action> OnLevelAboutToLoad;
+        public System.Action OnLevelLoaded;
+        public System.Action OnGameFinished;
+
         public Units.PlayerController Player { get; private set; }
 
         [SerializeField] Units.PlayerController playerPrefab;
@@ -28,6 +32,14 @@ namespace Game.Gameplay
             entitiesManager.Resume();
         }
 
+        public void TryLoadNextLevel()
+        {
+            if (currentLevelIndex + 1 == levelsSettings.Levels.Length)
+                OnGameFinished();
+            else
+                OnLevelAboutToLoad(StartLoadingNextLevel);
+        }
+
         private void Awake()
         {
             entitiesManager = new EntitiesManager();
@@ -38,7 +50,7 @@ namespace Game.Gameplay
             cameraController.Init(Player);
 
             currentLevelIndex = -1;
-            LoadNextLevel();
+            StartLoadingNextLevel();
         
             SceneManager.activeSceneChanged += OnSceneChanged;
         }
@@ -48,7 +60,7 @@ namespace Game.Gameplay
             entitiesManager.Update(Time.deltaTime);
         }
 
-        private void LoadNextLevel()
+        private void StartLoadingNextLevel()
         {
             if (currentLevelIndex > -1)
             {
@@ -70,7 +82,7 @@ namespace Game.Gameplay
 
         private void OnNextLevelLoaded(AsyncOperation _)
         {
-            if (unloadLevelOperation != null && unloadLevelOperation.isDone)
+            if (unloadLevelOperation == null || unloadLevelOperation.isDone)
                 OnLevelReady();
         }
 
@@ -78,6 +90,7 @@ namespace Game.Gameplay
         {
             currentLevel = FindObjectOfType<LevelController>();
             currentLevel.Init(Player);
+            OnLevelLoaded();
         }
 
         private void OnPlayerDeath()
