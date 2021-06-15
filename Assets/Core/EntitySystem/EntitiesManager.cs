@@ -29,6 +29,7 @@ namespace Core.EntitySystem
         {
             foreach (var entity in entities)
                 PoolManager.Instance.Release(entity);
+            entities.Clear();
         }
 
         public EntitiesManager()

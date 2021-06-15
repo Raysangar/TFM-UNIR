@@ -34,6 +34,7 @@ namespace Game.Gameplay
 
         public void TryLoadNextLevel()
         {
+            Pause();
             if (currentLevelIndex + 1 == levelsSettings.Levels.Length)
                 OnGameFinished();
             else
@@ -90,11 +91,15 @@ namespace Game.Gameplay
         {
             currentLevel = FindObjectOfType<LevelController>();
             currentLevel.Init(Player);
+            Player.ResetValues();
+            cameraController.ResetPosition();
             OnLevelLoaded();
+            Resume();
         }
 
         private void OnPlayerDeath()
         {
+            Pause();
         }
 
         private void OnSceneChanged(Scene _, Scene __)

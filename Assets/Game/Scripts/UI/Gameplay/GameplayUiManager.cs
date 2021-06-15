@@ -13,6 +13,7 @@ namespace Game.UI.Gameplay
         [SerializeField] GameOverPanelController gameOverPanel;
         [SerializeField] PausePanelController pausePanel;
         [SerializeField] LoadingScreenController loadingScreen;
+        [SerializeField] GameFinishedPanelController gameFinishedPanel;
 
         private GameManager gameManager;
         private PlayerInput input;
@@ -80,6 +81,7 @@ namespace Game.UI.Gameplay
 
             gameManager.OnLevelAboutToLoad += OnLevelAboutToLoad;
             gameManager.OnLevelLoaded += OnLevelLoaded;
+            gameManager.OnGameFinished += OnGameFinished;
 
             gamepadMenuController.ForceSelectionTo(null);
             gameManager.Player.OnDeath += OnPlayerDeath;
@@ -102,6 +104,8 @@ namespace Game.UI.Gameplay
             pausePanel.Init(gamepadMenuController);
             pausePanel.Init(GainUiFocus, LooseUiFocus);
 
+            gameFinishedPanel.Init(gamepadMenuController);
+            gameFinishedPanel.Init(GainUiFocus, LooseUiFocus);
         }
 
         private void OnLevelAboutToLoad(System.Action uiReadyToLoadLevelCallback)
@@ -120,6 +124,11 @@ namespace Game.UI.Gameplay
         private void OnPlayerDeath()
         {
             gameOverPanel.Show();
+        }
+
+        private void OnGameFinished()
+        {
+            gameFinishedPanel.Show();
         }
     }
 }

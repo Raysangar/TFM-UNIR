@@ -13,8 +13,8 @@ namespace Game.Gameplay.Units
         private readonly float usualSpeed;
         private readonly float speedWhileShooting;
         private readonly WeaponsSystem.Weapon weapon;
+        private readonly Transform cachedTransform;
 
-        private Transform cachedTransform;
         private Vector3? currentTarget;
 
         public Movement(Entity entity, float usualSpeed, float speedWhileShooting, WeaponsSystem.Weapon weapon) : base(entity)

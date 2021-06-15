@@ -18,8 +18,13 @@ namespace Game.Gameplay
         {
             this.player = player;
             cachedTransform = transform;
+            ResetPosition();
+        }
+
+        public void ResetPosition()
+        {
             timeFollowingPlayer = 0;
-            cachedTransform.position = player.Movement.Position + distanceFromPlayer;    
+            cachedTransform.position = player.Movement.Position + distanceFromPlayer;
         }
 
         public override void UpdateBehaviour(float deltaTime)

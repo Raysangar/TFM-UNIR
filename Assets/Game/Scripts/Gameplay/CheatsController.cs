@@ -3,13 +3,14 @@ using UnityEngine.InputSystem;
 
 namespace Game.Gameplay.Debug
 {
+    [RequireComponent(typeof(GameManager), typeof(PlayerInput))]
     public class CheatsController : MonoBehaviour
     {
-        [SerializeField] GameManager gameManager;
-        [SerializeField] PlayerInput input;
+        private GameManager gameManager;
 
-        private void Start()
+        private void Awake()
         {
+            gameManager = GetComponent<GameManager>();
             enabled = UnityEngine.Debug.isDebugBuild && Keyboard.current != null;
         }
 

@@ -15,6 +15,15 @@ namespace Game.Gameplay.Units
         private readonly int DirectionXAnimationId = Animator.StringToHash("DirectionX");
         private readonly int DirectionZAnimationId = Animator.StringToHash("DirectionZ");
 
+        public void ResetValues()
+        {
+            Life.AddLife(Life.Max);
+            for (int i = 0; i < Weapon.AmmoTypesCount; ++i)
+                Weapon.AddAmmo(i, Weapon.ClipSize);
+            Movement.SetLookTarget(null);
+            Movement.SetMovement(Vector3.zero);
+        }
+
         public override void OnGameplayPaused()
         {
             base.OnGameplayPaused();
@@ -40,13 +49,14 @@ namespace Game.Gameplay.Units
         {
             Vector2 input = context.ReadValue<Vector2>();
             Vector3 direction = new Vector3(input.x, 0, input.y).normalized;
+            bool isMoving = input.x != 0 || input.y != 0;
             Movement.SetMovement(direction);
-            if (!Weapon.IsShooting)
+            if (!Weapon.IsShooting && isMoving)
             {
                 Movement.SetRotation(Quaternion.LookRotation(direction));
                 RemoveMoveTarget();
             }
-            animator.SetBool(WalkAnimationId, input.x != 0 || input.y != 0);
+            animator.SetBool(WalkAnimationId, isMoving);
         }
 
         public void Look(InputAction.CallbackContext context)

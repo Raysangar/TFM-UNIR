@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
+  shouldBeReleasedBackToThePool: 1
   projectileRenderer: {fileID: 6945576911009353677}
 --- !u!135 &6742269277273316364
 SphereCollider:
