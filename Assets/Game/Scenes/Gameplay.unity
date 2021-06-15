@@ -513,7 +513,7 @@ MonoBehaviour:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: 0.2
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 136
@@ -523,7 +523,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  startingDistanceToReduceSpeed: 1
+  startingDistanceToReduceSpeed: 2
 --- !u!224 &1378395620 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6173758599614924678, guid: c52021a4fc436b243b9b1e88cefb447f, type: 3}
