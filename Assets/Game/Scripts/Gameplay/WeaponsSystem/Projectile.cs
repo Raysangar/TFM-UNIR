@@ -1,6 +1,6 @@
 using UnityEngine;
-using Core.Utils.Pool;
 using Core.EntitySystem;
+using Game.Gameplay.Units;
 
 namespace Game.Gameplay.WeaponsSystem
 {
@@ -65,21 +65,16 @@ namespace Game.Gameplay.WeaponsSystem
 
         private void OnTriggerEnter(Collider other)
         {
-            switch(other.gameObject.layer)
+            var entity = other.gameObject.GetComponent<Entity>();
+            if (entity != null)
             {
-                case Constants.PhysicLayers.Player:
-                    var player = other.gameObject.GetComponent<Units.PlayerController>();
-                    player.Life.AddDamage(settings.Damage, type);
-                    break;
-                case Constants.PhysicLayers.Enemies:
-                    var enemy = other.gameObject.GetComponent<Units.EnemyController>();
-                    enemy.Life.AddDamage(settings.Damage, type);
-                    break;
-                default:
-                    break;
-
+                var life = entity.GetEntityComponent<Life>();
+                if (life != null)
+                {
+                    life.AddDamage(settings.Damage, type);
+                    RemoveFromScene();
+                }
             }
-            RemoveFromScene();
         }
 
     }

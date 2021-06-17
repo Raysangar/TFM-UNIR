@@ -13,6 +13,19 @@ namespace Core.EntitySystem
 
         private bool initialized = false;
 
+        public T GetEntityComponent<T>() where T : EntityComponent
+        {
+            foreach (var component in enabledComponents)
+                if (component is T result)
+                    return result;
+
+            foreach (var component in disabledComponents)
+                if (component is T result)
+                    return result;
+
+            return null;
+        }
+
         protected virtual void Awake()
         {
             enabledComponents = new List<EntityComponent>();
