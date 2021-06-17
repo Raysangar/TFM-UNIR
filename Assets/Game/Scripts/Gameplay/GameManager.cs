@@ -91,10 +91,16 @@ namespace Game.Gameplay
         {
             currentLevel = FindObjectOfType<LevelController>();
             currentLevel.Init(Player);
+            currentLevel.EndArea.OnPlayerReachedEndOfLevel += OnPlayerReachEndOfLevel;
             Player.ResetValues();
             cameraController.ResetPosition();
             OnLevelLoaded();
             Resume();
+        }
+
+        private void OnPlayerReachEndOfLevel()
+        {
+            TryLoadNextLevel();
         }
 
         private void OnPlayerDeath()

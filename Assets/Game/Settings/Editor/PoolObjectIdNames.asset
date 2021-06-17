@@ -21,3 +21,4 @@ MonoBehaviour:
   - EnemyProjectile
   - GasStation
   - CameraController
+  - LevelEndArea

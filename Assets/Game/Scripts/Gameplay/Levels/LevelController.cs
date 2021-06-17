@@ -7,13 +7,13 @@ namespace Game.Gameplay
 {
     public class LevelController : MonoBehaviour
     {
-        [SerializeField] Transform playerInitialPosition;
+        public LevelEndArea EndArea => endArea;
 
-        private PlayerController player;
+        [SerializeField] Transform playerInitialPosition;
+        [SerializeField] LevelEndArea endArea;
 
         public void Init(PlayerController player)
         {
-            this.player = player;
             player.transform.position = playerInitialPosition.position;
             player.transform.rotation = playerInitialPosition.rotation;
 
