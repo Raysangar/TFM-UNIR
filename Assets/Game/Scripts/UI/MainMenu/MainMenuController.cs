@@ -13,6 +13,8 @@ namespace Game.UI
 
         public State CurrentState { get; private set; }
 
+        [SerializeField] AudioClip music;
+
         [Header("HUB")]
         [SerializeField] CanvasGroup hubParent;
         [SerializeField] Button continueButton;
@@ -32,6 +34,10 @@ namespace Game.UI
 
         private void Awake()
         {
+            var audioManager = Core.Audio.AudioManager.Instance;
+            audioManager.AttachTo(transform);
+            audioManager.PlayMusic(music);
+
             gamepadMenuController = GetComponent<GamepadMenuController>();
             gamepadMenuController.ForceSelectionTo(continueButton.gameObject);
             continueButton.onClick.AddListener(OnContinueButtonClicked);

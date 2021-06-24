@@ -13,6 +13,8 @@ namespace Game.Gameplay.WeaponsSystem
         public float TimeForFirstProjectile;
         public AmmoSettings[] Ammo;
         public ProjectileSettingsForTankState[] ProjectilesSettingsForTankState;
+        public AudioClip[] ShootAudioEffects;
+        public AudioClip[] HitAudioEffects;
 
         [System.Serializable]
         public class AmmoSettings

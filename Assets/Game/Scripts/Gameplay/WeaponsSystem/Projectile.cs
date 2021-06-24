@@ -16,10 +16,12 @@ namespace Game.Gameplay.WeaponsSystem
         private AmmoType type;
         private WeaponSettings.ProjectileSettings settings;
         private float distanceTraveled;
+        private AudioClip[] hitAudioEffects;
         
-        public void Init(Transform startingTransform, WeaponSettings.AmmoSettings ammoSettings, WeaponSettings.ProjectileSettings settings)
+        public void Init(Transform startingTransform, WeaponSettings.AmmoSettings ammoSettings, AudioClip[] hitAudioEffects, WeaponSettings.ProjectileSettings settings)
         {
             this.settings = settings;
+            this.hitAudioEffects = hitAudioEffects;
             type = ammoSettings.Type;
 
             if (type != AmmoType.Enemy)
@@ -72,6 +74,7 @@ namespace Game.Gameplay.WeaponsSystem
                 if (life != null)
                 {
                     life.AddDamage(settings.Damage, type);
+                    Core.Audio.AudioManager.Instance.PlayAudioEffect(hitAudioEffects, transform.position);
                     RemoveFromScene();
                 }
             }

@@ -43,6 +43,8 @@ namespace Game.Gameplay
 
         private void Awake()
         {
+            Core.Audio.AudioManager.Instance.AttachTo(cameraController.transform);
+
             entitiesManager = new EntitiesManager();
 
             Player = Instantiate(playerPrefab);

@@ -98,9 +98,10 @@ namespace Game.Gameplay.WeaponsSystem
                 --CurrentGasInTank;
                 var projectile = PoolManager.Instance.GetInstanceFor(EquippedAmmoSettings.ProjectilePrefab);
                 var projectileSettings = settings.GetCurrentProjectileSettings(CurrentGasInTank, TankSize);
-                projectile.Init(projectilePosReference, EquippedAmmoSettings, projectileSettings);
+                projectile.Init(projectilePosReference, EquippedAmmoSettings, settings.HitAudioEffects, projectileSettings);
                 OnGasChanged?.Invoke();
                 OnAmmoChanged?.Invoke();
+                Core.Audio.AudioManager.Instance.PlayAudioEffect(settings.ShootAudioEffects, entity.transform.position);
             }
         }
     }

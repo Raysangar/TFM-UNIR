@@ -36,3 +36,10 @@ MonoBehaviour:
       StartFallingAfterDistance: 1000
       FallSpeed: 10
       Damage: 5
+  ShootAudioEffects:
+  - {fileID: 8300000, guid: 044b0427ad3b522458d16ff78bc51167, type: 3}
+  HitAudioEffects:
+  - {fileID: 8300000, guid: 06ef5eaddd9d08c4e878431c7e95cc38, type: 3}
+  - {fileID: 8300000, guid: 043249eed35f9b54c9422d0024612f08, type: 3}
+  - {fileID: 8300000, guid: 3875e3f9b9f9b804b923f382e0e2e385, type: 3}
+  - {fileID: 8300000, guid: 6c2cdf10c35562944a516831dc9d34d6, type: 3}

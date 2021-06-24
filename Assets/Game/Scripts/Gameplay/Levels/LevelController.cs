@@ -13,11 +13,15 @@ namespace Game.Gameplay
         [SerializeField] Transform enemiesParent;
         [SerializeField] Transform unlockLevenEndPickupsParent;
         [SerializeField] LevelEndArea endArea;
+        [SerializeField] AudioClip music;
 
         public void Init(PlayerController player)
         {
             player.transform.position = playerInitialPosition.position;
             player.transform.rotation = playerInitialPosition.rotation;
+
+            if (music != null)
+                Core.Audio.AudioManager.Instance.PlayMusic(music);
 
             if (enemiesParent != null)
             {
