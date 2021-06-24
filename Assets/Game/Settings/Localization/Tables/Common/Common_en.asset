@@ -22,5 +22,9 @@ MonoBehaviour:
     m_Localized: CONTINUE
     m_Metadata:
       m_Items: []
+  - m_Id: 18817678715633664
+    m_Localized: BACK
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

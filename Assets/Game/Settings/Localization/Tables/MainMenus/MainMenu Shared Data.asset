@@ -31,6 +31,10 @@ MonoBehaviour:
     m_Key: exit
     m_Metadata:
       m_Items: []
+  - m_Id: 32279876083367936
+    m_Key: credits
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

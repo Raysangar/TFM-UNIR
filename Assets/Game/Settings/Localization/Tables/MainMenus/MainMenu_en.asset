@@ -34,5 +34,9 @@ MonoBehaviour:
     m_Localized: EXIT
     m_Metadata:
       m_Items: []
+  - m_Id: 32279876083367936
+    m_Localized: CREDITS
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
