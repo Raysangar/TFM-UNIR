@@ -10,6 +10,7 @@ namespace Game.Gameplay.WeaponsSystem
         public bool InfiniteTankSize;
         public int TankSize;
         public float ProjectilePeriod;
+        public float TimeForFirstProjectile;
         public AmmoSettings[] Ammo;
         public ProjectileSettingsForTankState[] ProjectilesSettingsForTankState;
 

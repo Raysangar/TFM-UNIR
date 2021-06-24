@@ -17,6 +17,7 @@ MonoBehaviour:
   InfiniteTankSize: 0
   TankSize: 50
   ProjectilePeriod: 1
+  TimeForFirstProjectile: 0.3
   Ammo:
   - Type: 1
     ProjectilePrefab: {fileID: 6945576910884391660, guid: a93e0d0114027a9458f3bb13c20f4775, type: 3}

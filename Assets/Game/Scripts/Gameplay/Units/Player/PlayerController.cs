@@ -69,21 +69,23 @@ namespace Game.Gameplay.Units
         public void LookAt(InputAction.CallbackContext context)
         {
             if (Weapon.IsShooting)
-            {
-                Vector3 input = context.ReadValue<Vector2>();
-                input.z = Vector3.Distance(mainCamera.transform.position, Movement.Position);
-                mousePosition = input;
-            }
+                AimToMousePosition(context.ReadValue<Vector2>());
             else
-            {
                 RemoveMoveTarget();
-            }
+        }
+
+        private void AimToMousePosition(Vector3 input)
+        {
+            input.z = Vector3.Distance(mainCamera.transform.position, Movement.Position);
+            mousePosition = input;
         }
 
         public void Shoot(InputAction.CallbackContext context)
         {
             if (context.started)
             {
+                if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+                    AimToMousePosition(Mouse.current.position.ReadDefaultValue());
                 Weapon.StartShooting();
                 animator.SetBool(ShootAnimationId, true);
             }

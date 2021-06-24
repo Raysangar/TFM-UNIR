@@ -25,9 +25,9 @@ namespace Game.Gameplay.WeaponsSystem
 
         public WeaponSettings.AmmoSettings EquippedAmmoSettings => GetAmmoSettings(EquippedAmmoIndex);
 
-        private Transform projectilePosReference;
-        private WeaponSettings settings;
-        private int[] clipsPerAmmo;
+        private readonly Transform projectilePosReference;
+        private readonly WeaponSettings settings;
+        private readonly int[] clipsPerAmmo;
         private float timeSinceLastProjectile;
 
         public WeaponSettings.AmmoSettings GetAmmoSettings(int ammoIndex) => settings.Ammo[ammoIndex];
@@ -44,7 +44,7 @@ namespace Game.Gameplay.WeaponsSystem
 
             CurrentGasInTank = TankSize;
 
-            timeSinceLastProjectile = settings.ProjectilePeriod;
+            timeSinceLastProjectile = settings.ProjectilePeriod - settings.TimeForFirstProjectile;
             SetEquippedAmmo(0);
         }
 
@@ -56,6 +56,7 @@ namespace Game.Gameplay.WeaponsSystem
         public void StopShooting()
         {
             IsShooting = false;
+            timeSinceLastProjectile = settings.ProjectilePeriod - settings.TimeForFirstProjectile;
         }
 
         public void SetEquippedAmmo(int ammoIndex)
@@ -78,13 +79,14 @@ namespace Game.Gameplay.WeaponsSystem
 
         public override void UpdateBehaviour(float deltaTime)
         {
-            if (timeSinceLastProjectile < settings.ProjectilePeriod)
-                timeSinceLastProjectile += deltaTime;
-
-            if (IsShooting && timeSinceLastProjectile >= settings.ProjectilePeriod)
+            if (IsShooting)
             {
-                timeSinceLastProjectile -= settings.ProjectilePeriod;
-                TryShootProjectile();
+                timeSinceLastProjectile += deltaTime;
+                if (timeSinceLastProjectile >= settings.ProjectilePeriod)
+                {
+                    timeSinceLastProjectile -= settings.ProjectilePeriod;
+                    TryShootProjectile();
+                }
             }
         }
 
