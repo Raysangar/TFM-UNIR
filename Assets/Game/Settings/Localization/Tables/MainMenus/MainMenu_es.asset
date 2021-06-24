@@ -38,5 +38,17 @@ MonoBehaviour:
     m_Localized: "CR\xC9DITOS"
     m_Metadata:
       m_Items: []
+  - m_Id: 32939150098808832
+    m_Localized: Volumen General
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32939303526449152
+    m_Localized: "Volumen de la M\xFAsica"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32939407767486464
+    m_Localized: Volumen de los Efectos
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

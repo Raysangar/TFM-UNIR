@@ -25,10 +25,49 @@ namespace Core.Audio
         private const string MusicVolumeSettingsId = "MusicVolume";
         private const string EffectsVolumeSettingsId = "EffectsVolume";
 
+        public float MasterVolume => masterVolume;
+        public float MusicVolume => musicVolume;
+        public float EffectsVolume => effectsVolume;
+
         [SerializeField] AudioSettings settings;
 
         private AudioSource[] audioEffectSources;
         private AudioSource musicSource;
+        private float masterVolume;
+        private float musicVolume;
+        private float effectsVolume;
+
+        public void SetMasterVolume(float volume)
+        {
+            masterVolume = volume;
+            ApplyVolumeChanges(MasterVolumeSettingsId, volume);
+        }
+
+        public void SetMusicVolume(float volume)
+        {
+            musicVolume = volume;
+            ApplyVolumeChanges(MusicVolumeSettingsId, volume);
+        }
+
+        public void SetEffectsVolume(float volume)
+        {
+            effectsVolume = volume;
+            ApplyVolumeChanges(EffectsVolumeSettingsId, volume);
+        }
+
+        private void ApplyVolumeChanges(string id, float volume)
+        {
+            PlayerPrefs.SetFloat(id, volume);
+            PlayerPrefs.Save();
+            UpdateVolumes();
+        }
+
+        private void UpdateVolumes()
+        {
+            musicSource.volume = masterVolume * musicVolume;
+            foreach (var effectSource in audioEffectSources)
+                effectSource.volume = masterVolume * effectsVolume;
+        }
 
         public void AttachTo(Transform parent)
         {
@@ -81,6 +120,10 @@ namespace Core.Audio
             audioEffectSources = new AudioSource[settings.MaxSimultaneusAudioEffects];
             for (int i = 0; i < settings.MaxSimultaneusAudioEffects; ++i)
                 audioEffectSources[i] = Instantiate(settings.AudioEffectSourcePrefab, sourcesParent.transform);
+
+            masterVolume = PlayerPrefs.GetFloat(MasterVolumeSettingsId, 1);
+            musicVolume = PlayerPrefs.GetFloat(MusicVolumeSettingsId, 1);
+            effectsVolume = PlayerPrefs.GetFloat(EffectsVolumeSettingsId, 1);
         }
     }
 }

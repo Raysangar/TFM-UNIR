@@ -38,5 +38,17 @@ MonoBehaviour:
     m_Localized: CREDITS
     m_Metadata:
       m_Items: []
+  - m_Id: 32939150098808832
+    m_Localized: Master Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32939303526449152
+    m_Localized: Music Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32939407767486464
+    m_Localized: SFX Volume
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

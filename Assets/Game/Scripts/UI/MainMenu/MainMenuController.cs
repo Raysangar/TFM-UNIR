@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 using Core.Utils.UI;
 using System.Collections;
 
-namespace Game.UI
+namespace Game.UI.MainMenu
 {
     [RequireComponent(typeof(GamepadMenuController))]
     public class MainMenuController : MonoBehaviour
@@ -25,6 +25,7 @@ namespace Game.UI
 
         [Header("Settings")]
         [SerializeField] CanvasGroup settingsParent;
+        [SerializeField] SettingsMenuController settingsScreen;
         [SerializeField] Button settingsBackButton;
 
         [Header("Credits")]
@@ -63,6 +64,7 @@ namespace Game.UI
         private void OnSettingsButtonClicked()
         {
             SetState(State.Settings);
+            settingsScreen.OnShow();
         }
 
         private void OnExitButtonClicked()

@@ -35,6 +35,18 @@ MonoBehaviour:
     m_Key: credits
     m_Metadata:
       m_Items: []
+  - m_Id: 32939150098808832
+    m_Key: master_volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32939303526449152
+    m_Key: music_volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32939407767486464
+    m_Key: effects_volume
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
