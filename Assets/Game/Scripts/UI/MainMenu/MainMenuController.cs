@@ -14,6 +14,7 @@ namespace Game.UI.MainMenu
         public State CurrentState { get; private set; }
 
         [SerializeField] AudioClip music;
+        [SerializeField] GameObject inputBlocker;
 
         [Header("HUB")]
         [SerializeField] CanvasGroup hubParent;
@@ -39,6 +40,11 @@ namespace Game.UI.MainMenu
             audioManager.AttachTo(transform);
             audioManager.PlayMusic(music);
 
+            PlayerPrefs.SetInt(Constants.PlayerPrefsIds.SelectedSaveFileIndexId, 0);
+            PlayerPrefs.Save();
+
+            inputBlocker.SetActive(false);
+
             gamepadMenuController = GetComponent<GamepadMenuController>();
             gamepadMenuController.ForceSelectionTo(continueButton.gameObject);
             continueButton.onClick.AddListener(OnContinueButtonClicked);
@@ -48,17 +54,22 @@ namespace Game.UI.MainMenu
             creditsButton.onClick.AddListener(OnCreditsButtonClicked);
             settingsBackButton.onClick.AddListener(OnSettingsBackButtonClicked);
 
+            continueButton.gameObject.SetActive(Core.Saves.SavesSystem.HasAtLeastOneSaveFile);
+
             SetState(State.Hub);
         }
 
         private void OnContinueButtonClicked()
         {
-            SceneManager.LoadScene(2);
+            inputBlocker.SetActive(true);
+            SceneManager.LoadSceneAsync(Constants.Scenes.GameplayIndex);
         }
 
         private void OnNewGameButtonClicked()
         {
-            SceneManager.LoadScene(2);
+            Core.Saves.SavesSystem.TryDeleteSave(0);
+            inputBlocker.SetActive(true);
+            SceneManager.LoadSceneAsync(Constants.Scenes.GameplayIndex);
         }
 
         private void OnSettingsButtonClicked()

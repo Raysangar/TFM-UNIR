@@ -16,5 +16,10 @@ namespace Game
             public const int Player = 3;
             public const int Enemies = 6;
         }
+
+        public static class PlayerPrefsIds
+        {
+            public const string SelectedSaveFileIndexId = "SelectedSaveFileIndex";
+        }
     }
 }

@@ -18,9 +18,12 @@ namespace Game.Gameplay
 
         private EntitiesManager entitiesManager;
         private int currentLevelIndex;
+        private int targetLevelIndex;
         private LevelController currentLevel;
         private AsyncOperation unloadLevelOperation;
         private AsyncOperation loadLevelOperation;
+        private SaveFile saveFile;
+        private int selectedSaveFileIndex;
 
         public void Pause()
         {
@@ -35,10 +38,18 @@ namespace Game.Gameplay
         public void TryLoadNextLevel()
         {
             Pause();
-            if (currentLevelIndex + 1 == levelsSettings.Levels.Length)
-                OnGameFinished();
-            else
-                OnLevelAboutToLoad(StartLoadingNextLevel);
+            saveFile.LastLevelIndexCompleted = currentLevelIndex;
+            Core.Saves.SavesSystem.TrySave(saveFile, selectedSaveFileIndex);
+            targetLevelIndex = currentLevelIndex + 1;
+            OnLevelAboutToLoad(StartLoadingNextLevel);
+        }
+
+        private void GameFinished()
+        {
+            saveFile.LastLevelIndexCompleted = -1;
+            ++saveFile.TimesGameFinished;
+            Core.Saves.SavesSystem.TrySave(saveFile, selectedSaveFileIndex);
+            OnGameFinished();
         }
 
         private void Awake()
@@ -52,7 +63,11 @@ namespace Game.Gameplay
 
             cameraController.Init(Player);
 
+            selectedSaveFileIndex = PlayerPrefs.GetInt(Constants.PlayerPrefsIds.SelectedSaveFileIndexId, 0);
+            saveFile = Core.Saves.SavesSystem.TryLoad<SaveFile>(selectedSaveFileIndex) ?? new SaveFile();
+
             currentLevelIndex = -1;
+            targetLevelIndex = saveFile.LastLevelIndexCompleted + 1;
             StartLoadingNextLevel();
         
             SceneManager.activeSceneChanged += OnSceneChanged;
@@ -70,10 +85,8 @@ namespace Game.Gameplay
                 unloadLevelOperation = SceneManager.UnloadSceneAsync(levelsSettings.Levels[currentLevelIndex].SceneIndex);
                 unloadLevelOperation.completed += OnPreviousLevelUnloaded;
             }
-
-            ++currentLevelIndex;
             
-            loadLevelOperation = SceneManager.LoadSceneAsync(levelsSettings.Levels[currentLevelIndex].SceneIndex, LoadSceneMode.Additive);
+            loadLevelOperation = SceneManager.LoadSceneAsync(levelsSettings.Levels[targetLevelIndex].SceneIndex, LoadSceneMode.Additive);
             loadLevelOperation.completed += OnNextLevelLoaded;
         }
 
@@ -91,6 +104,7 @@ namespace Game.Gameplay
 
         private void OnLevelReady()
         {
+            currentLevelIndex = targetLevelIndex;
             currentLevel = FindObjectOfType<LevelController>();
             currentLevel.Init(Player);
             currentLevel.EndArea.OnPlayerReachedEndOfLevel += OnPlayerReachEndOfLevel;
@@ -102,7 +116,10 @@ namespace Game.Gameplay
 
         private void OnPlayerReachEndOfLevel()
         {
-            TryLoadNextLevel();
+            if (currentLevelIndex + 1 == levelsSettings.Levels.Length)
+                GameFinished();
+            else
+                TryLoadNextLevel();
         }
 
         private void OnPlayerDeath()
