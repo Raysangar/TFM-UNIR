@@ -12,6 +12,7 @@ namespace Game.Gameplay.Units
         [SerializeField] protected Animator animator;
         [SerializeField] protected Transform projectilePosReference;
         [SerializeField] protected T settings;
+        [SerializeField] WeaponsSystem.AmmoType ammoWeakness;
 
         protected readonly int WalkAnimationId = Animator.StringToHash("walking");
         protected readonly int ShootAnimationId = Animator.StringToHash("shooting");
@@ -20,9 +21,8 @@ namespace Game.Gameplay.Units
         {
             base.Awake();
             Weapon = new WeaponsSystem.Weapon(this, projectilePosReference, settings.WeaponSettings);
-            Life = new Life(this, settings.MaxLife, settings.AmmoWeakness);
+            Life = new Life(this, settings.MaxLife, ammoWeakness);
             Movement = new Movement(this, settings.Speed, settings.SpeedWhileShooting, Weapon);
         }
-
     }
 }

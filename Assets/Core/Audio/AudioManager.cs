@@ -84,7 +84,8 @@ namespace Core.Audio
 
         public void PlayAudioEffect(AudioClip[] clips, Vector3 position)
         {
-            PlayAudioEffect(clips[Random.Range(0, clips.Length)], position);
+            if (clips.Length > 0)
+                PlayAudioEffect(clips[Random.Range(0, clips.Length)], position);
         }
 
         public void PlayAudioEffect(AudioClip clip, Vector3 position)

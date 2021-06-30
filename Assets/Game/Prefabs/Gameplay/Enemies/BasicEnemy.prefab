@@ -48,9 +48,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 4
+  shouldBeReleasedBackToThePool: 0
   animator: {fileID: 7343367338768227769}
   projectilePosReference: {fileID: 4172735212469851415}
   settings: {fileID: 11400000, guid: bd0583f1655481d41a1465a9e8147727, type: 2}
+  ammoWeakness: 3
 --- !u!136 &4023227421951881589
 CapsuleCollider:
   m_ObjectHideFlags: 0

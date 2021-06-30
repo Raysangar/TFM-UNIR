@@ -16,7 +16,8 @@ MonoBehaviour:
   ClipSize: 0
   InfiniteTankSize: 1
   TankSize: 0
-  ProjectilePeriod: 1
+  ProjectilePeriod: 0.5
+  TimeForFirstProjectile: 0.3
   Ammo:
   - Type: 0
     ProjectilePrefab: {fileID: 6945576910884391660, guid: 3e74ac418514a89448240fb6c78bf43a, type: 3}
@@ -29,3 +30,5 @@ MonoBehaviour:
       StartFallingAfterDistance: 0
       FallSpeed: 0
       Damage: 1
+  ShootAudioEffects: []
+  HitAudioEffects: []

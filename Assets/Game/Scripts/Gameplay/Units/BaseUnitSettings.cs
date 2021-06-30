@@ -9,6 +9,5 @@ namespace Game.Gameplay.Units
         public float SpeedWhileShooting;
         public int MaxLife;
         public WeaponSettings WeaponSettings;
-        public AmmoType AmmoWeakness;
     }
 }
