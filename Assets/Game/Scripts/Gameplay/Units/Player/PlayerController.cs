@@ -8,7 +8,7 @@ namespace Game.Gameplay.Units
     {
         public System.Action OnDeath;
 
-        private Camera mainCamera;
+        private CameraController cameraController;
         private PlayerInput playerInput;
         private Vector3? mousePosition;
 
@@ -36,11 +36,10 @@ namespace Game.Gameplay.Units
             playerInput.enabled = true;
         }
 
-        protected override void Awake()
+        public void InitBehaviour(CameraController cameraController)
         {
-            base.Awake();
             mousePosition = null;
-            mainCamera = Camera.main;
+            this.cameraController = cameraController;
             playerInput = GetComponent<PlayerInput>();
             Life.OnDeath += OnDeathCallback;
         }
@@ -48,7 +47,7 @@ namespace Game.Gameplay.Units
         public void Move(InputAction.CallbackContext context)
         {
             Vector2 input = context.ReadValue<Vector2>();
-            Vector3 direction = new Vector3(input.x, 0, input.y).normalized;
+            Vector3 direction = Quaternion.Euler(0, cameraController.transform.localEulerAngles.y, 0) * new Vector3(input.x, 0, input.y).normalized;
             bool isMoving = input.x != 0 || input.y != 0;
             Movement.SetMovement(direction);
             if (!Weapon.IsShooting && isMoving)
@@ -76,7 +75,7 @@ namespace Game.Gameplay.Units
 
         private void AimToMousePosition(Vector3 input)
         {
-            input.z = Vector3.Distance(mainCamera.transform.position, Movement.Position);
+            input.z = Vector3.Distance(cameraController.transform.position, Movement.Position);
             mousePosition = input;
         }
 
@@ -114,7 +113,7 @@ namespace Game.Gameplay.Units
         public override void UpdateBehaviour(float deltaTime)
         {
             if (mousePosition.HasValue)
-                Movement.SetLookTarget(mainCamera.ScreenToWorldPoint(mousePosition.Value));
+                Movement.SetLookTarget(cameraController.Camera.ScreenToWorldPoint(mousePosition.Value));
             if (Weapon.IsShooting)
             {
                 if (Movement.CurrentDirection.x > 0 || Movement.CurrentDirection.y > 0)

@@ -12,6 +12,8 @@ namespace Game.Gameplay
         [SerializeField] Transform playerInitialPosition;
         [SerializeField] Transform enemiesParent;
         [SerializeField] float cameraFieldOfView;
+        [SerializeField] Vector3 cameraInitialRotation;
+        [SerializeField] Transform cameraRotationSettersParent;
         [SerializeField] Transform unlockLevenEndPickupsParent;
         [SerializeField] LevelEndArea endArea;
         [SerializeField] AudioClip music;
@@ -25,6 +27,14 @@ namespace Game.Gameplay
 
             this.cameraController = cameraController;
             cameraController.Camera.fieldOfView = cameraFieldOfView;
+            cameraController.ResetState(cameraInitialRotation);
+
+            if (cameraRotationSettersParent != null)
+            {
+                var cameraRotationSetters = cameraRotationSettersParent.GetComponentsInChildren<CameraRotationSetter>(true);
+                foreach (var cameraRotationSetter in cameraRotationSetters)
+                    cameraRotationSetter.Init(cameraController);
+            }
 
             if (music != null)
                 Core.Audio.AudioManager.Instance.PlayMusic(music);

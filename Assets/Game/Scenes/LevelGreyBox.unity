@@ -1555,6 +1555,7 @@ MonoBehaviour:
   playerInitialPosition: {fileID: 1535258378}
   enemiesParent: {fileID: 1608543803}
   cameraFieldOfView: 70
+  cameraInitialRotation: {x: 45, y: 0, z: 0}
   unlockLevenEndPickupsParent: {fileID: 0}
   endArea: {fileID: 686558542}
   music: {fileID: 0}
