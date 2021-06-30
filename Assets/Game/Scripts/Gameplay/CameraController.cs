@@ -4,8 +4,11 @@ using Game.Gameplay.Units;
 
 namespace Game.Gameplay
 {
+    [RequireComponent(typeof(Camera))]
     public class CameraController : Entity
     {
+        public Camera Camera { get; private set; }
+
         [SerializeField] Vector3 distanceFromPlayer;
         [SerializeField] AnimationCurve reachPlayerSpeedCurve;
         [SerializeField] float reachPlayerSpeedDuration;
@@ -20,6 +23,7 @@ namespace Game.Gameplay
         public void Init(PlayerController player)
         {
             this.player = player;
+            Camera = GetComponent<Camera>();
             cachedTransform = transform;
             ResetPosition();
         }

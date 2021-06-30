@@ -106,7 +106,7 @@ namespace Game.Gameplay
         {
             currentLevelIndex = targetLevelIndex;
             currentLevel = FindObjectOfType<LevelController>();
-            currentLevel.Init(Player);
+            currentLevel.Init(Player, cameraController);
             currentLevel.EndArea.OnPlayerReachedEndOfLevel += OnPlayerReachEndOfLevel;
             Player.ResetValues();
             cameraController.ResetPosition();

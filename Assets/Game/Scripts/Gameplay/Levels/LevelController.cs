@@ -11,14 +11,20 @@ namespace Game.Gameplay
 
         [SerializeField] Transform playerInitialPosition;
         [SerializeField] Transform enemiesParent;
+        [SerializeField] float cameraFieldOfView;
         [SerializeField] Transform unlockLevenEndPickupsParent;
         [SerializeField] LevelEndArea endArea;
         [SerializeField] AudioClip music;
 
-        public void Init(PlayerController player)
+        private CameraController cameraController;
+
+        public void Init(PlayerController player, CameraController cameraController)
         {
             player.transform.position = playerInitialPosition.position;
             player.transform.rotation = playerInitialPosition.rotation;
+
+            this.cameraController = cameraController;
+            cameraController.Camera.fieldOfView = cameraFieldOfView;
 
             if (music != null)
                 Core.Audio.AudioManager.Instance.PlayMusic(music);
