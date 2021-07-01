@@ -44,11 +44,6 @@ namespace Core.EntitySystem
                 OnSpawnedToScene(this);
         }
 
-        private void OnDestroy()
-        {
-            OnRemovedFromScene(this);
-        }
-
         public void Enable(EntityComponent component)
         {
             disabledComponents.Remove(component);
