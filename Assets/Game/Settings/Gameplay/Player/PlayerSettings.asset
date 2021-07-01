@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f80c8e6609c432541997376536046b19, type: 3}
   m_Name: PlayerSettings
   m_EditorClassIdentifier: 
-  Speed: 10
+  Speed: 5
   SpeedWhileShooting: 5
   MaxLife: 10
   WeaponSettings: {fileID: 11400000, guid: 495e095e6ccece045852bd27cf6f5c46, type: 2}

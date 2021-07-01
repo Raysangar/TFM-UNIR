@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: PlayerWeaponSettings
   m_EditorClassIdentifier: 
   InfiniteAmmo: 0
-  ClipSize: 10
+  ClipSize: 80
   InfiniteTankSize: 0
   TankSize: 50
-  ProjectilePeriod: 1
+  ProjectilePeriod: 0.2
   TimeForFirstProjectile: 0.3
   Ammo:
   - Type: 1
