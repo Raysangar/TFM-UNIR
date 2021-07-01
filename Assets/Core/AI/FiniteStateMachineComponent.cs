@@ -25,8 +25,6 @@ namespace Core.AI
             enterStateBehaviour?.Invoke();
         }
 
-        
-
         public void Update(float deltaTime)
         {
             updateBehaviour?.Invoke(deltaTime);

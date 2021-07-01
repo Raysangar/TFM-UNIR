@@ -23,6 +23,7 @@ namespace Game.UI
             gasBar.SetLocalScaleX(1);
             cachedAmmoBarTransform.SetLocalScaleX(1);
             player.Life.OnChanged += OnLifeChanged;
+            player.Life.OnDeath += OnPlayerDeath;
             player.Weapon.OnGasChanged += OnGasChanged;
             player.Weapon.OnAmmoChanged += OnAmmoChanged;
         }
@@ -30,6 +31,11 @@ namespace Game.UI
         private void OnLifeChanged()
         {
             lifeBar.SetLocalScaleX((float)player.Life.Current / player.Life.Max);
+        }
+
+        private void OnPlayerDeath()
+        {
+            lifeBar.SetLocalScaleX(0);
         }
 
         private void OnGasChanged()

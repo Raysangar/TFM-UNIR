@@ -24,8 +24,10 @@ namespace Game.Gameplay.Units
                     new FiniteState(OnStartFollowingPlayer, Stop, FollowPlayerBehaviour, new System.Func<bool>[] {null, null, ShouldStartShootingPlayer}),
                     new FiniteState(OnStartShooting, OnStopShooting, AimPlayerBehaviour, new System.Func<bool>[] {null, ShouldFollowPlayer, null})
                 }
-            );
-            disabledComponents.Add(finiteStateMachine);
+            )
+            {
+                Enabled = false
+            };
         }
 
         public void InitBehaviour(PlayerController player, Transform[] patrolNodes = null)

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Game.Gameplay.Debug
+namespace Game.Gameplay.Debugging
 {
     [RequireComponent(typeof(GameManager), typeof(PlayerInput))]
     public class CheatsController : MonoBehaviour

@@ -60,6 +60,7 @@ namespace Game.Gameplay
 
             Player = Instantiate(playerPrefab);
             Player.OnDeath += OnPlayerDeath;
+            Player.InitBehaviour(cameraController);
 
             cameraController.Init(Player);
 
@@ -106,10 +107,9 @@ namespace Game.Gameplay
         {
             currentLevelIndex = targetLevelIndex;
             currentLevel = FindObjectOfType<LevelController>();
-            currentLevel.Init(Player);
+            currentLevel.Init(Player, cameraController);
             currentLevel.EndArea.OnPlayerReachedEndOfLevel += OnPlayerReachEndOfLevel;
             Player.ResetValues();
-            cameraController.ResetPosition();
             OnLevelLoaded();
             Resume();
         }
