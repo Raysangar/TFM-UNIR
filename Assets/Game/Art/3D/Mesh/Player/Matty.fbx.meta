@@ -24,6 +24,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Pants_M
     second: {fileID: 2100000, guid: 6caff993c33422f4f8fa5e08a48b7a4b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Weapon_uvs_escalaV02_Weapon_uvs_Weapon_M4
+    second: {fileID: 2100000, guid: dee7ce692357993499e0b4fee107a477, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
