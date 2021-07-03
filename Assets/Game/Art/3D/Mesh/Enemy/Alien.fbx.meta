@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: AlienGun_M
+    second: {fileID: 2100000, guid: 84443f6edc3426d4595ec0d606055f57, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Alien_M
     second: {fileID: 2100000, guid: 48007359e038ea64cb6639633790aa54, type: 2}
   materials:
