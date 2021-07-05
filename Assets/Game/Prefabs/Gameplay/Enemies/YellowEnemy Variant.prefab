@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 59136343728417984, guid: 0ab8a0438e7cd484c9790f184caf1177, type: 3}
+      propertyPath: ammoWeakness
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 245576148495748042, guid: 0ab8a0438e7cd484c9790f184caf1177, type: 3}
       propertyPath: m_Materials.Array.size
       value: 2
