@@ -21,7 +21,7 @@ namespace Game.Gameplay.Debugging
 
         private void CheckCheatKeys()
         {
-            if (Keyboard.current.enterKey.wasPressedThisFrame)
+            if (Keyboard.current.deleteKey.wasPressedThisFrame)
                 gameManager.TryLoadNextLevel();
         }
     }
