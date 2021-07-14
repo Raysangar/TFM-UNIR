@@ -50,8 +50,12 @@ namespace Game.Gameplay
             {
                 var unlockLevelEndPickups = unlockLevenEndPickupsParent.GetComponentsInChildren<UnlockLevelEndPickup>();
                 UnlockLevelEndPickupsTotalCount = unlockLevelEndPickups.Length;
-                foreach (var pickup in unlockLevelEndPickups)
+                for (int i = 0; i < unlockLevelEndPickups.Length; ++i)
+                {
+                    var pickup = unlockLevelEndPickups[i];
                     pickup.OnPlayerEarned += OnPlayerGotUnlockLevelEndPickup;
+                    pickup.SetVisual(i);
+                }
 
                 if (UnlockLevelEndPickupsTotalCount > 0)
                     endArea.gameObject.SetActive(false);

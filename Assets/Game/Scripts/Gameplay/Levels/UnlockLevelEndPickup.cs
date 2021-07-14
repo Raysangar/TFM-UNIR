@@ -13,6 +13,13 @@ namespace Game.Gameplay
 
         private int deadEnemiesHidingThis;
 
+        public void SetVisual(int index)
+        {
+            var visualAssets = transform.GetComponentsInChildren<MeshRenderer>();
+            for (int i = 0; i < visualAssets.Length; ++i)
+                visualAssets[i].enabled = i == index;
+        }
+
         protected override void Start()
         {
             base.Start();
