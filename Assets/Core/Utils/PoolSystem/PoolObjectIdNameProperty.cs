@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEditor;
 
 namespace Core.Utils.Pool
 {
@@ -10,9 +9,11 @@ namespace Core.Utils.Pool
 
         public PoolObjectIdNameProperty()
         {
-            var assets = AssetDatabase.FindAssets("t:" + typeof(PoolObjectIdNames).FullName);
+#if UNITY_EDITOR
+            var assets = UnityEditor.AssetDatabase.FindAssets("t:" + typeof(PoolObjectIdNames).FullName);
             if (assets.Length > 0)
-                Names = AssetDatabase.LoadAssetAtPath<PoolObjectIdNames>(AssetDatabase.GUIDToAssetPath(assets[0]));
+                Names = UnityEditor.AssetDatabase.LoadAssetAtPath<PoolObjectIdNames>(UnityEditor.AssetDatabase.GUIDToAssetPath(assets[0]));
+#endif
         }
     }
 }
