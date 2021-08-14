@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/Scenes/GreyBox_OutdoorsScene.unity
     guid: 2568358628eed8f449efc68c68665d54
+  - enabled: 1
+    path: Assets/Game/Scenes/Assets_OutdoorsScene.unity
+    guid: 63fcc3ee0b603de449a1785c785c587f
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 9a4a5edd9e42fd948b12a1015b76355e, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 603f23a8a8584094796e8bcce1c71d96, type: 2}
