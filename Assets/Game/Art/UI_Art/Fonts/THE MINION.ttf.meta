@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 8ae7e92e4fac29d41a37de6ec43d203e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - THE MINION
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 2091d3e11354f2241864faaad15bf051, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

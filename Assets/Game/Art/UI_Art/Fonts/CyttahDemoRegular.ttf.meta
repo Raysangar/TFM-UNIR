@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 6dd2592035e39544e9e5ab3665f70f7f
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Cyttah Demo
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: aca6934658580404a84124af6be3b052, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
