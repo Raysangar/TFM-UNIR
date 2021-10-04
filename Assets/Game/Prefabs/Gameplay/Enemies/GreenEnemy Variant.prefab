@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a82d7efbe12f92949ab3b044b0e33097, type: 2}
+    - target: {fileID: 1851391897816099752, guid: 0ab8a0438e7cd484c9790f184caf1177, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2006381685003446984, guid: 0ab8a0438e7cd484c9790f184caf1177, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
