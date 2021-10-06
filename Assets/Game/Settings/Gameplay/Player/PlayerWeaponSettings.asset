@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerWeaponSettings
   m_EditorClassIdentifier: 
   InfiniteAmmo: 0
-  ClipSize: 80
+  ClipSize: 20
   InfiniteTankSize: 0
   TankSize: 50
   ProjectilePeriod: 0.2
@@ -27,7 +27,7 @@ MonoBehaviour:
     Color: {r: 1, g: 0.96372116, b: 0, a: 1}
   - Type: 3
     ProjectilePrefab: {fileID: 6945576910884391660, guid: a93e0d0114027a9458f3bb13c20f4775, type: 3}
-    Color: {r: 0, g: 0.053393364, b: 1, a: 1}
+    Color: {r: 0, g: 0.8601885, b: 1, a: 1}
   ProjectilesSettingsForTankState:
   - applyFromTankLeftPercentage: 0
     applyUntilTankLeftPercentage: 100
